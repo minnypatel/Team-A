@@ -1,3 +1,12 @@
+<?php
+
+include_once 'Controller/display.php';
+include_once 'Model/dummy-data.php';
+
+use function Controller\display;
+
+?>
+
 <html>
     <head>
         <title>Homepage</title>
@@ -7,11 +16,12 @@
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
-        <?php include "Views/navbar.phtml"; ?>
+        <?php // include "Views/navbar.phtml"; ?>
+        <?php echo display('navbar') ; ?>
         <div class="container">
         <div class="main">
-            <?php include "Views/article.phtml"; ?>
-            <?php include "Views/article.phtml"; ?>
+            <?php echo display('article_1', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
+            <?php echo display('article_1', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
         </div>
         </div>
        

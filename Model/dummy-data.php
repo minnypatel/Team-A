@@ -7,21 +7,17 @@
  */
 
 $articles = ['Article 1' => [
-    'title' => 'Article 1', 
-    'image' => "Images/2002.jpg",
-    'body' => 'Whatever PBR&B master cleanse, next level direct trade food truck four loko heirloom pabst. Bushwick wayfarers green juice, typewriter banh mi gentrify poutine vexillologist salvia lyft lo-fi man bun. Letterpress waistcoat vice, small batch chambray man braid sartorial irony art party marfa tattooed migas pinterest. Taxidermy locavore snackwave, sartorial truffaut shabby chic prism. Photo booth dreamcatcher truffaut gentrify, blue bottle whatever gochujang pok pok bushwick. Dreamcatcher quinoa poutine glossier, meditation unicorn edison bulb bicycle rights master cleanse cronut. Post-ironic dreamcatcher slow-carb, pop-up asymmetrical chicharrones chambray literally chillwave pok pok food truck single-origin coffee vexillologist.
-                Pour-over fashion axe woke ennui, affogato chambray distillery kombucha forage. Succulents kickstarter chambray art party, scenester truffaut meh DIY etsy salvia lumbersexual migas retro literally put a bird on it. Banh mi ramps leggings pop-up, wolf fashion axe unicorn flexitarian bespoke fingerstache blue bottle bicycle rights tote bag. DIY vinyl fap, selvage cornhole shabby chic 8-bit swag mustache. Heirloom post-ironic pitchfork YOLO, hell of cornhole umami brunch selvage marfa hammock poke lomo mlkshk four loko. Jianbing drinking vinegar venmo art party. Cornhole street art gastropub intelligentsia, poutine seitan hella waistcoat swag ugh lumbersexual.
-                YOLO quinoa mumblecore, 3 wolf moon pop-up truffaut hoodie flannel taxidermy you probably havent heard of them. Paleo hot chicken quinoa, ethical lumbersexual try-hard cardigan hashtag. Jean shorts plaid post-ironic salvia tousled etsy. Disrupt pinterest lyft, plaid live-edge lumbersexual venmo poutine marfa try-hard chambray. Chambray YOLO whatever vegan tilde, humblebrag banjo authentic seitan polaroid thundercats. Subway tile godard distillery sriracha, hell of chillwave selfies sustainable banh mi whatever farm-to-table. XOXO cred woke, actually tousled narwhal tbh paleo asymmetrical helvetica direct trade retro butcher lumbersexual hexagon. Pop-up iceland everyday carry, fap plaid dreamcatcher lyft keytar stumptown hexagon etsy trust fund succulents. Sartorial poke sriracha ennui glossier, unicorn whatever. Post-ironic pug air plant single-origin coffee synth, irony hashtag copper mug. Hammock street art kinfolk artisan. Blue bottle bespoke letterpress, leggings sriracha food truck etsy waistcoat. Authentic everyday carry lyft chartreuse, bitters cred la croix godard +1 chambray. Raw denim succulents chartreuse, four loko poutine health goth godard chillwave farm-to-table tilde iceland aesthetic tote bag everyday carry cold-pressed.',
-    'contributor' => 'Jasmin'
-    ], 
-    
-['Article 2' => [
-    'title' => 'Article 2', 
-    'image' => '/Images/darjeeling2.png',
-    'body' => 'This is article 2 body.',
-    'contributor' => 'Kirsty'
-        ]
-    ]
-];
+                'title' => 'You probably haven\'t heard of Hipster Ipsum', 
+                'image' => "Images/2002.jpg",
+                'body' => 'Bespoke lo-fi succulents kombucha, bitters blog dreamcatcher farm-to-table la croix etsy cardigan intelligentsia leggings raw denim pickled. 3 wolf moon tousled cold-pressed, glossier fap knausgaard pitchfork activated charcoal 8-bit craft beer. Freegan pug you probably haven\'t heard of them master cleanse. Lo-fi affogato vexillologist flannel organic, franzen retro trust fund hella chia meditation iPhone. Literally twee 8-bit narwhal bicycle rights. Forage man braid lomo hell of, bicycle rights cred quinoa. Dreamcatcher ethical drinking vinegar, edison bulb disrupt photo booth offal cronut.',
+                'contributor' => 'Jasmin'
+                ], 
+            'Article 2' => [
+                'title' => 'Tattooed Kale Chips', 
+                'image' => '/Images/darjeeling2.png',
+                'body' => 'Leggings meggings wolf, austin tbh post-ironic drinking vinegar vaporware slow-carb listicle tattooed kale chips pour-over. Irony slow-carb messenger bag, yuccie hoodie pickled pop-up microdosing art party YOLO jean shorts polaroid. Messenger bag sustainable four dollar toast chia cold-pressed. Art party salvia chicharrones bicycle rights, locavore gastropub cold-pressed edison bulb knausgaard artisan blog la croix. Tbh synth cred lumbersexual, crucifix kitsch 90\'s tumeric bespoke hot chicken migas vexillologist mixtape. Four dollar toast pinterest meditation, tousled 8-bit viral literally lyft brooklyn four loko. Jianbing forage biodiesel you probably haven\'t heard of them pickled, paleo occupy tattooed plaid cold-pressed.',
+                'contributor' => 'Kirsty'
+                ]
+            ];
 
 
