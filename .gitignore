@@ -36,3 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 /nbproject/private/
+
+# netbeans crap
+/nbproject
+/nbproject/project.properties
+/nbproject/project.xml
