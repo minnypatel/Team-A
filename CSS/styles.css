@@ -20,7 +20,9 @@ body {
     position: fixed;
     width: 100%;
     text-decoration: none;
+    z-index: 1;
 }
+
 
 /*Makes sure the list has no padding/margin*/ 
 
@@ -71,6 +73,39 @@ body {
     color: white;  
 }
 
+.container {
+    background: #F2F2F2;
+}
 
+.main {
+    overflow: hidden;
+    position:relative;
+    top: 40px;  
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.article {
+    max-width: 600px;
+    padding: 10px;
+    background: white;
+    
+}
+
+.article img {
+    max-width: 580px;
+    margin: 0;
+}
+
+.article h3 {
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-size: 50px;
+    margin: 0;
+}
+
+.article p {
+    margin: 0;
+}
 
 
