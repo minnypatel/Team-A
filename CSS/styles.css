@@ -18,9 +18,8 @@ body {
     background-color: #333;
     overflow: hidden;
     position: fixed;
-    padding: 0;
-    margin: 0; 
     width: 100%;
+    text-decoration: none;
 }
 
 /*Makes sure the list has no padding/margin*/ 
@@ -34,11 +33,18 @@ body {
 /* Style the links inside the navigation bar */
 .topnav li { 
     display: block;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-decoration: none;
     font-size: 17px;
+}
+
+.topnav li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
 }
 
 .topnav .align-left {
@@ -46,15 +52,17 @@ body {
 }
 
 .topnav .align-right {
-    float: right; 
+    float: right;
 }
 
 
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.topnav li a:hover {
     background-color: #d6acad;
     color: black;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
 /* Add a color to the active/current link */
