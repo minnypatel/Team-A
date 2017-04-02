@@ -1,5 +1,6 @@
 <?php
 
+namespace Model\Dummydata;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,3 +22,13 @@ $articles = ['Article 1' => [
             ];
 
 
+/* Dummy data for login*/
+$users = [ 'amardeep' =>[
+    'username' => 'amardeep',
+    'password' => 'test'
+],
+    'chris' => [
+        'username' => 'chris',
+        'password' => 'test'
+        ]
+    ];
