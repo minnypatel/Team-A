@@ -6,7 +6,7 @@ include_once 'Model/Dbconnection.php';
 
 use function Controller\display;
 
-try {
+/*try {
     $newThing = new Dbconnection(); 
     $newThing->getdbconnect();
     }
@@ -19,7 +19,7 @@ $stmt = $newThing->prepare("SELECT * FROM article");
 $stmt->execute();
 
 echo "This printed\n";
-echo $stmt;
+echo $stmt;*/
 
 ?>
 
