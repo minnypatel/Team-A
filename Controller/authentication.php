@@ -1,0 +1,34 @@
+<?php
+
+namespace Controller\Authentication;
+
+include_once 'Model\dummy-data.php';
+include_once 'Model\userdetails.php';
+session_start();
+function login($users, $username, $password) {
+    $user = \Model\Userdetails\read_user($users, $username, $password);
+
+//    if($user && password_verify($password, $user['password'])) {
+        
+//        header(‘Location: upload.php’);
+    if ($username == "amardeep" && $password == "test"){
+            echo "Welcome";
+            $_SESSION['username'] = $username;
+            print_r($_SESSION);  
+    } else {
+        die("ERROR - login failed");
+    }
+}
+
+//function logout() {
+//    session_destroy();
+//}
+
+//function require_login() {
+//    if(empty($_SESSION[‘username’])) {
+//        header(‘Location: login.php’);
+//        exit();
+//    }
+
+//}
+?>

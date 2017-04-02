@@ -1,5 +1,6 @@
 <?php
 
+namespace Model\Dummydata;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,7 +8,11 @@
  */
 
 $articles = ['Article 1' => [
+<<<<<<< HEAD
                 'title' => 'blah blah blah', 
+=======
+                'title' => 'You probably haven\'t heard of Hipster Ipsum - Jasmin will tell you all about it', 
+>>>>>>> 3691e11a810b2b82a1db5891cbde5ff2c69ab63b
                 'image' => "Images/2002.jpg",
                 'body' => 'Bespoke lo-fi succulents kombucha, bitters blog dreamcatcher farm-to-table la croix etsy cardigan intelligentsia leggings raw denim pickled. 3 wolf moon tousled cold-pressed, glossier fap knausgaard pitchfork activated charcoal 8-bit craft beer. Freegan pug you probably haven\'t heard of them master cleanse. Lo-fi affogato vexillologist flannel organic, franzen retro trust fund hella chia meditation iPhone. Literally twee 8-bit narwhal bicycle rights. Forage man braid lomo hell of, bicycle rights cred quinoa. Dreamcatcher ethical drinking vinegar, edison bulb disrupt photo booth offal cronut.',
                 'contributor' => 'Jasmin'
@@ -21,3 +26,13 @@ $articles = ['Article 1' => [
             ];
 
 
+/* Dummy data for login*/
+$users = [ 'amardeep' =>[
+    'username' => 'amardeep',
+    'password' => 'test'
+],
+    'chris' => [
+        'username' => 'chris',
+        'password' => 'test'
+        ]
+    ];

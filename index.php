@@ -6,20 +6,20 @@ include_once 'Model/Dbconnection.php';
 
 use function Controller\display;
 
-//try {
-//    $newThing = new Dbconnection(); 
-//    $newThing->getdbconnect();
-//    }
-//catch(PDOException $e)
-//    {
-//    echo "Connection failed: " . $e->getMessage();
-//    }
-//    
-//$stmt = $newThing->prepare("SELECT * FROM article");
-//$stmt->execute();
-//
-//echo "This printed\n";
-//echo $stmt;
+/*try {
+    $newThing = new Dbconnection(); 
+    $newThing->getdbconnect();
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+    
+$stmt = $newThing->prepare("SELECT * FROM article");
+$stmt->execute();
+
+echo "This printed\n";
+echo $stmt;*/
 
 ?>
 
