@@ -2,8 +2,24 @@
 
 include_once 'Controller/display.php';
 include_once 'Model/dummy-data.php';
+include_once 'Model/Dbconnection.php';
 
 use function Controller\display;
+
+try {
+    $newThing = new Dbconnection(); 
+    $newThing->getdbconnect();
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+    
+$stmt = $newThing->prepare("SELECT * FROM article");
+$stmt->execute();
+
+echo "This printed\n";
+echo $stmt;
 
 ?>
 
@@ -20,8 +36,8 @@ use function Controller\display;
         <?php echo display('navbar') ; ?>
         <div class="container">
         <div class="main">
-            <?php echo display('article_1', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
-            <?php echo display('article_1', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
+            <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
+            <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
         </div>
         </div>
        
