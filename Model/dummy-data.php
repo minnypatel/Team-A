@@ -7,7 +7,7 @@
  */
 
 $articles = ['Article 1' => [
-                'title' => 'You probably haven\'t heard of Hipster Ipsum', 
+                'title' => 'You probably haven\'t heard of Hipster Ipsum - Jasmin will tell you all about it', 
                 'image' => "Images/2002.jpg",
                 'body' => 'Bespoke lo-fi succulents kombucha, bitters blog dreamcatcher farm-to-table la croix etsy cardigan intelligentsia leggings raw denim pickled. 3 wolf moon tousled cold-pressed, glossier fap knausgaard pitchfork activated charcoal 8-bit craft beer. Freegan pug you probably haven\'t heard of them master cleanse. Lo-fi affogato vexillologist flannel organic, franzen retro trust fund hella chia meditation iPhone. Literally twee 8-bit narwhal bicycle rights. Forage man braid lomo hell of, bicycle rights cred quinoa. Dreamcatcher ethical drinking vinegar, edison bulb disrupt photo booth offal cronut.',
                 'contributor' => 'Jasmin'
