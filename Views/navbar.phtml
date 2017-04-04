@@ -1,7 +1,7 @@
 <?php 
-
 namespace View\Navbar;
 
+session_start();
 ?>
 
 <header>
@@ -12,9 +12,15 @@ namespace View\Navbar;
         <!--<li class="align-left"><a href="Cat1">Category 1</a></li>
         <li class="align-left"><a href="Cat2">Category 2</a></li>-->
         
-        <li class="align-right"><a href="login.php">Log In</a></li>
-        
-        <!--<li class="align-right"><a href="Upload">Upload</a></li>-->
+        <?php 
+            if ($_SESSION) {
+                echo '<li class="align-right"><a href="logout.php">Log Out</a></li>';
+                echo '<li class="align-right"><a href="upload.php">Upload</a></li>';
+            } else {
+                echo '<li class="align-right"><a href="login.php">Log In</a></li>';
+            }
+        ?>
+      
         
     </ul>
     </div>

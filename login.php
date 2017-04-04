@@ -6,7 +6,7 @@ include_once 'Controller/authentication.php';
 ?>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    Controller\Authentication\login($users, $_POST['username'], $_POST['password']);
+    Controller\Authentication\login($_POST['username'], $_POST['password']);
 }
 ?>
 
@@ -27,9 +27,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="main">
         </div>
         </div>
-        
-        
-        
-       
     </body>
 </html>

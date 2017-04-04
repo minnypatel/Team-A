@@ -2,22 +2,28 @@
 
 namespace Controller\Authentication;
 
-include_once 'Model\dummy-data.php';
-include_once 'Model\userdetails.php';
+//include_once 'Model\dummy-data.php';
+//include_once 'Model\userdetails.php';
+
 session_start();
-function login($users, $username, $password) {
-    $user = \Model\Userdetails\read_user($users, $username, $password);
+function login($username, $password) {
+    //$user = \Model\Userdetails\read_user($users, $username, $password);
 
 //    if($user && password_verify($password, $user['password'])) {
         
 //        header(‘Location: upload.php’);
+
     if ($username == "amardeep" && $password == "test"){
-            echo "Welcome";
             $_SESSION['username'] = $username;
-            print_r($_SESSION);  
+            var_dump('I was hit');
+            header("Location: index.php");
+            //print_r($_SESSION);  
     } else {
         die("ERROR - login failed");
     }
+    
+    
+    
 }
 
 //function logout() {

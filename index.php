@@ -5,7 +5,7 @@ include_once 'Model/dummy-data.php';
 include_once 'Model/Dbconnection.php';
 
 use function Controller\display;
-
+var_dump($_SESSION)
 /*try {
     $newThing = new Dbconnection(); 
     $newThing->getdbconnect();
@@ -20,7 +20,6 @@ $stmt->execute();
 
 echo "This printed\n";
 echo $stmt;*/
-
 ?>
 
 <html>
@@ -32,7 +31,6 @@ echo $stmt;*/
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
-        <?php // include "Views/navbar.phtml"; ?>
         <?php echo display('navbar') ; ?>
         <div class="container">
         <div class="main">
