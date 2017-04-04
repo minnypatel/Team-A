@@ -8,8 +8,10 @@ include_once 'Model/DbConnection.php';
 use function Controller\display;
 
 
-$newConnection = new DbConnection(); 
+/* 
+ $newConnection = new DbConnection(); 
 $newConnection = $newConnection->getDb(); // here you get the connection
+ */
 
 
     
