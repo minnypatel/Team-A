@@ -5,7 +5,7 @@ include_once 'Model/dummy-data.php';
 include_once 'Model/Dbconnection.php';
 
 use function Controller\display;
-var_dump($_SESSION)
+
 /*try {
     $newThing = new Dbconnection(); 
     $newThing->getdbconnect();
@@ -36,6 +36,7 @@ echo $stmt;*/
         <div class="main">
             <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
             <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
+            <!-- We would need to do a loop or something to fetch all articles from the database to now display on homepage -->
         </div>
         </div>
        
