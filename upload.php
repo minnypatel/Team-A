@@ -7,7 +7,7 @@ include 'Controller/articleupload.php';
 use function Controller\display;
 ?>
 <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){
- Controller\Articleupload\upload_file();
+ $filename = Controller\Articleupload\upload_file();
 }
 ?>
 <html>
@@ -27,6 +27,9 @@ use function Controller\display;
         <!--Article Body:--> <?php // echo $_GET["body"]; ?>
         </div>
         </div>
+        
+        <img src="<?php echo 'Images/'.$filename; ?>" height='100' width='100' >
+        <img src="Images/glass5.jpg" height='100' width='100' >
        
     </body>
 </html>
