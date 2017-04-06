@@ -20,7 +20,6 @@ $stmt->execute();
 
 echo "This printed\n";
 echo $stmt;*/
-
 ?>
 
 <html>
@@ -32,15 +31,16 @@ echo $stmt;*/
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
-        <?php // include "Views/navbar.phtml"; ?>
         <?php echo display('navbar') ; ?>
         <div class="container">
         <div class="main">
             <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
             <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
+
+            <!-- We would need to do a loop or something to fetch all articles from the database to now display on homepage -->
+
         </div>
         </div>
-       
     </body>
 </html>
 
