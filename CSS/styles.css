@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 
 
+/* fix for weird gap on right hand side*/ 
+
 body {
     margin: 0px;
 }
@@ -107,5 +109,3 @@ body {
 .article p {
     margin: 0;
 }
-
-
