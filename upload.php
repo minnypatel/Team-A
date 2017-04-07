@@ -1,14 +1,28 @@
 <?php
 
+include_once 'Model/Dbconnection.php';
 include_once 'Controller/display.php';
-include 'Controller/articleupload.php';
+include_once 'Controller/ArticleUpload.php';
+include_once 'Model/Article.php';
+include_once 'Model/File.php';
+
+use \Model\Article;
+use \Model\File;
 
 use function Controller\display;
 
-
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-     $filename = Controller\Articleupload\upload_file();
+     $article = new Article($_POST['title'], $_POST['content']);
+     
+        if (!empty($_FILES['userFile']['name'])) {
+             $file = new File($_FILES['userFile']['name']);
+             $file->setLocation($_FILES['userFile']['tmp_name']);
+             $article->setImage($file);
+             var_dump($_FILES); 
+            }
+        
+     $articleUpload = new Controller\ArticleUpload();
+     $articleUpload->upload($article);
 }
 
 ?>

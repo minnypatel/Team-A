@@ -1,35 +1,47 @@
 <?php
 
+namespace Model;
+
 include_once 'Dbconnection.php';
-use \Model\Dbconnection;
 
 Class Article {
     
-    public $id;
-    public $title;
-    public $content;
-    public $contributor;
-    public $date_upload;
-    public $date_modified;
+    protected $id;
+    protected $title;
+    protected $content;
+    protected $image;
+    protected $contributor;
+    protected $date_upload;
+    protected $date_modified;
     
-    public function __construct($id, $title, $content) {
-        $this->id      = $id;
+    public function __construct($title, $content) {
         $this->title   = $title;
         $this->content = $content;
     }
-
-    public static function getAll() {
-        $list = [];
-        $db = $Dbconnection::getDb();
-        $request = $db->prepare('SELECT * FROM article');
-        $request->execute();
-
-        // we create a list of Post objects from the database results
-        foreach($request as $item) {
-            $list[] = new Article($item['id'], $item['title'], $item['content']);
-        }
-
-        return $list;
+    
+    public function getTitle() {
+        return $this->title;
     }
+    
+    public function setTitle($title) {
+        // for edit functionality?
+    }
+    
+    public function getContent() {
+        return $this->content;
+    }
+    
+    public function setContent($content) {
+        // for edit functionality?
+    }
+    
+    public function getImage() {
+        return $this->image;
+    }
+    
+    public function setImage(File $image) {
+        $this->image = $image;
+    }
+    
     
 }

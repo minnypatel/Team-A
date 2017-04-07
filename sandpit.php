@@ -1,6 +1,6 @@
 <?php
 
-//include_once 'Model/DbConnection.php';
+include_once 'Model/DbConnection.php';
 include_once 'Model/Article.php';
 
 $instance = Dbconnection::getInstance();
