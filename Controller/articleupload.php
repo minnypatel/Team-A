@@ -10,7 +10,7 @@ $image = "";
 
 
 function upload_file() {
-//    print_r($FILES);
+
     $tmpFile = $_FILES[InputKey]['tmp_name'];
     $dstFile = 'Images/'.$_FILES[InputKey]['name'];
 
@@ -31,9 +31,20 @@ function upload_file() {
         'filepath' => $dstFile
         ]
     );
+    
+    echo "dstfile: $dstFile";
+    
+    if (!move_uploaded_file($tmpFile, $dstFile)) {
+	throw new \Exception("Handle Error"); }
+
+    if (file_exists($tmpFile)) {
+        unlink($tmpFile);
+    }
+    
     echo "upload_file ran, bitches\n";
     print_r($_POST);
-    echo "dstfile: $dstFile";
+    
+//    header("Location: index.php" );
 }
     
     
