@@ -1,6 +1,7 @@
 <?php
 
-//use 'DbConnection.php';
+include_once 'Dbconnection.php';
+use \Model\Dbconnection;
 
 Class Article {
     
@@ -19,7 +20,7 @@ Class Article {
 
     public static function getAll() {
         $list = [];
-        $db = $DbConnection::getDb();
+        $db = $Dbconnection::getDb();
         $request = $db->prepare('SELECT * FROM article');
         $request->execute();
 

@@ -2,24 +2,47 @@
 
 namespace Controller\Articleupload;
 
-$title = $body = $image = "";
+const InputKey = 'userFile';
 
-function upload_file(){
+$title = ""; 
+$content  = "";
+$image = "";
+
+
+function upload_file() {
+//    print_r($FILES);
+    $tmpFile = $_FILES[InputKey]['tmp_name'];
+    $dstFile = 'Images/'.$_FILES[InputKey]['name'];
+
+//    $instance = Dbconnection::getInstance();
+//    $connection = $instance->getConnection();
+    $servername = "mysql:host=127.0.0.1;dbname=blogdb";
+    $username = "root";
+    $password = "";
     
-$title = $_POST['title'];
-$body = $_POST ['body'];
-$image = $_FILES ['image'];
-//echo "Hello " . $title . $body . $image['tmp_name'];
+    $connection = new \PDO($servername, $username, $password);
+    
+    $stmt = $connection->prepare("INSERT INTO article (title, content, filepath)
+                                  VALUES (:title, :content, :filepath)");
 
-$destinationFile = getcwd().'/Images/'.$image['name'];
-move_uploaded_file($image['tmp_name'], $destinationFile);
-
-//header("Location: index.php" );
-
-return $image['name'];
+    $stmt->execute([
+        'title'   => $_POST['title'], 
+        'content' => $_POST['content'],
+        'filepath' => $dstFile
+        ]
+    );
+    echo "upload_file ran, bitches\n";
+    print_r($_POST);
+    echo "dstfile: $dstFile";
 }
-?>
-
-
-<!--  return $_GET["title"];
-      return $_GET["body"]; Cant have 2 returns in a function. This actually needs to be passed to our database. We could assign the values to a variable and then echo the variable. -->
+    
+    
+    
+//    keep this stuff
+//    $image = $_FILES ['image'];
+//    $destinationFile = getcwd().'/Images/'.$image['name'];
+//    move_uploaded_file($image['tmp_name'], $destinationFile);
+//
+//    header("Location: index.php" );
+//
+//    return $image['name'];

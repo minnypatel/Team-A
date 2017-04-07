@@ -1,11 +1,10 @@
 <?php
 
-include_once 'Model/DbConnection.php';
+//include_once 'Model/DbConnection.php';
+include_once 'Model/Article.php';
 
 $instance = Dbconnection::getInstance();
 $connection = $instance->getConnection(); 
-var_dump($connection);
-    
 $stmt = $connection->prepare("SELECT id, title FROM article");
 $stmt->execute();
 
@@ -18,4 +17,5 @@ foreach ($stmt as $row) {
 
 echo "********************" . "<br>";
 
-//$newArticle = new ;
+//$newArticle = new Article();
+//$newArticle->getAll();

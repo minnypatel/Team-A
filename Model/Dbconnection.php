@@ -1,5 +1,7 @@
 <?php
 
+namespace Model\Dbconnection;
+
 Class Dbconnection {
     
     private static $instance = null; 
@@ -26,7 +28,7 @@ Class Dbconnection {
     public function getConnection() {
         return $this->connection; 
     }
-} 
- 
+}
 ?>
+ 
 
