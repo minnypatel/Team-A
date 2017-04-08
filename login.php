@@ -3,11 +3,19 @@ include_once 'Model/dummy-data.php';
 include_once 'Controller/display.php';
 include_once 'Controller/authentication.php';
 
+use function Controller\display;
+
 ?>
 <?php
+
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     Controller\Authentication\login($_POST['username'], $_POST['password']);
 }
+
+print_r($_SESSION);
+
 ?>
 
 
@@ -20,11 +28,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
-        <?php // include "Views/navbar.phtml"; ?>
-        <?php //echo display('navbar');
-        echo Controller\display('loginform');?>
+        <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
+              <?php echo display('loginform'); ?>
         </div>
         </div>
     </body>

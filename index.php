@@ -12,6 +12,8 @@ use Model\Dbconnection;
 
 use function Controller\display;
 
+session_start();
+
 ?>
 
 <html>

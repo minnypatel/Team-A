@@ -1,9 +1,14 @@
 <?php
 
-namespace Controller\Authentication;
+namespace Controller;
 
-//include_once 'Model\dummy-data.php';
-//include_once 'Model\userdetails.php';
+//use \Model\Dbconnection;
+
+Class ContributorLogin {
+    
+}
+
+
 
 function login($username, $password) {
     //$user = \Model\Userdetails\read_user($users, $username, $password);
@@ -15,7 +20,7 @@ function login($username, $password) {
     if ($username == "amardeep" && $password == "test"){
             $_SESSION['username'] = $username;
             var_dump('I was hit');
-//            header("Location: index.php");
+            header("Location: index.php");
             //print_r($_SESSION);  
     } else {
         die("ERROR - login failed");
@@ -24,16 +29,3 @@ function login($username, $password) {
     
     
 }
-
-//function logout() {
-//    session_destroy();
-//}
-
-//function require_login() {
-//    if(empty($_SESSION[‘username’])) {
-//        header(‘Location: login.php’);
-//        exit();
-//    }
-
-//}
-?>
