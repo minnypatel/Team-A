@@ -15,10 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
      $article = new Article($_POST['title'], $_POST['content']);
      
         if (!empty($_FILES['userFile']['name'])) {
-             $file = new File($_FILES['userFile']['name']);
-             $file->setLocation($_FILES['userFile']['tmp_name']);
-             $article->setImage($file);
-             var_dump($_FILES); 
+            $file = new File($_FILES['userFile']['name']);
+            $file->setLocation($_FILES['userFile']['tmp_name']);
+            $article->setImage($file);
             }
         
      $articleUpload = new Controller\ArticleUpload();

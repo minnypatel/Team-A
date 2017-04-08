@@ -19,12 +19,20 @@ Class Article {
         $this->content = $content;
     }
     
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
     public function getTitle() {
         return $this->title;
     }
     
     public function setTitle($title) {
-        // for edit functionality?
+        $this->title = $title;
     }
     
     public function getContent() {
@@ -32,7 +40,7 @@ Class Article {
     }
     
     public function setContent($content) {
-        // for edit functionality?
+        $this->content = $content;
     }
     
     public function getImage() {

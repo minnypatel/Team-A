@@ -1,21 +1,14 @@
 <?php
 
-include_once 'Model/DbConnection.php';
+include_once 'Model/Dbconnection.php';
 include_once 'Model/Article.php';
+include_once 'Model/ArticleDAO.php';
 
-$instance = Dbconnection::getInstance();
-$connection = $instance->getConnection(); 
-$stmt = $connection->prepare("SELECT id, title FROM article");
-$stmt->execute();
+use Model\ArticleDAO;
+use Model\Dbconnection;
 
-echo "This printed\n";
-print_r($stmt);
-
-foreach ($stmt as $row) {
-	echo $row[0] . " " . $row[1] . "<br>";
-}
-
-echo "********************" . "<br>";
-
-//$newArticle = new Article();
-//$newArticle->getAll();
+echo "This printed";
+$articleDisplay = new ArticleDAO(Dbconnection::getInstance());
+echo "This printed2";
+print_r($articleDisplay->getAll());
+echo "This printed3";

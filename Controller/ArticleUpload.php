@@ -35,7 +35,7 @@ Class ArticleUpload {
     
     private function moveFile(\Model\Article &$article) {
         $file = $article->getImage();
-        $dstFile = 'Images/'.$file->getName();
+        $dstFile = 'Uploads/'.$file->getName();
         
         if (!move_uploaded_file($file->getLocation(), $dstFile)) {
             throw new \Exception("Handle Error");    

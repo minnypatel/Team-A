@@ -2,7 +2,13 @@
 
 include_once 'Controller/display.php';
 include_once 'Model/dummy-data.php';
+
 include_once 'Model/Dbconnection.php';
+include_once 'Model/Article.php';
+include_once 'Model/ArticleDAO.php';
+
+use Model\ArticleDAO;
+use Model\Dbconnection;
 
 use function Controller\display;
 
@@ -20,10 +26,18 @@ use function Controller\display;
         <?php echo display('navbar') ; ?>
         <div class="container">
         <div class="main">
-            <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 1' ] ); ?>
-            <?php echo display('article', ['articles' => $articles, 'articleID' => 'Article 2' ] ); ?>
-
-            <!-- We would need to do a loop or something to fetch all articles from the database to now display on homepage -->
+            
+            <?php 
+            
+            $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
+            $array = $articleDisplay->getAll();
+            $array = array_reverse($array);
+   
+            foreach($array as $thing) {
+                echo display('article', ['title' => $thing->getTitle(), 'filepath' => $thing->getImage()->getLocation(), 'content' => $thing->getContent()]);
+            }
+            
+            ?>
 
         </div>
         </div>
