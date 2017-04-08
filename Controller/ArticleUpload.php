@@ -22,13 +22,14 @@ Class ArticleUpload {
         $connection = $instance->getConnection();
 
     // Move this to DAO??    
-        $stmt = $connection->prepare("INSERT INTO article (title, content, filepath)
-                                      VALUES (:title, :content, :filepath)");
+        $stmt = $connection->prepare("INSERT INTO article (title, content, filepath, date_uploaded)
+                                      VALUES (:title, :content, :filepath, :date_uploaded)");
 
         $stmt->execute([
             'title'   => $article->getTitle(), 
             'content' => $article->getContent(),
-            'filepath' => $article->getImage()->getLocation()
+            'filepath' => $article->getImage()->getLocation(),
+            'date_uploaded' => $article->getDateUploaded() 
             ]
         );
     }

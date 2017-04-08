@@ -11,7 +11,7 @@ Class Article {
     protected $content;
     protected $image;
     protected $contributor;
-    protected $date_upload;
+    protected $date_uploaded;
     protected $date_modified;
     
     public function __construct($title, $content) {
@@ -49,6 +49,14 @@ Class Article {
     
     public function setImage(File $image) {
         $this->image = $image;
+    }
+    
+    public function getDateUploaded() {
+       return $this->date_uploaded; 
+    }
+   
+    public function setDateUploaded($date_uploaded) {
+       $this->date_uploaded = $date_uploaded;
     }
     
     
