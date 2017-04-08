@@ -1,7 +1,14 @@
 <?php include 'Model/dummy-data.php'; ?>
 
 <div class="article"> 
-    <h3><?php echo $articles[$articleID]['title'] ?></h3>
-    <p><img src="Images/grafitti.jpg" /></p>
-    <p><?php echo $articles[$articleID]['body'] ?></p>  
-</div> 
+    <h3><?php echo $title; ?></h3>
+        
+        <?php if($filepath != null): ?>
+                  <p><img src=<?="$filepath"; ?> /></p>
+        <?php else: ?>
+                  <h3>THIS RAN</h3>
+                  <p><img src='Images/2002.jpg'/></p>
+        <?php endif; ?>
+                  
+    <p><?php echo $content ?></p>  
+</div>

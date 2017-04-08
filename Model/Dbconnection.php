@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 Class Dbconnection {
     
     private static $instance = null; 
@@ -10,9 +12,8 @@ Class Dbconnection {
     private $password = "";
     
     private function __construct() {
-        $this->connection = new PDO($this->servername, $this->username, $this->password);
-        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connection successful"; 
+        $this->connection = new \PDO($this->servername, $this->username, $this->password);
+        $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         return $this->connection;
     }
 
@@ -26,7 +27,11 @@ Class Dbconnection {
     public function getConnection() {
         return $this->connection; 
     }
-} 
- 
+    
+    public function prepare($z) { 
+        return $this->connection->prepare($z); 
+    }
+}
 ?>
+ 
 
