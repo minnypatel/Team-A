@@ -50,14 +50,4 @@ Class Article {
     public function setImage(File $image) {
         $this->image = $image;
     }
-    
-    public function getDateUploaded() {
-       return $this->date_uploaded; 
-    }
-   
-    public function setDateUploaded($date_uploaded) {
-       $this->date_uploaded = $date_uploaded;
-    }
-    
-    
 }

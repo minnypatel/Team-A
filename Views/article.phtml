@@ -1,7 +1,6 @@
 <?php include 'Model/dummy-data.php'; ?>
 
-<div class="article"> 
-    <p><?php echo $date_uploaded ?></p>  
+<div class="article">   
     <h3><?php echo $title; ?></h3>
         
         <?php if($filepath != null): ?>
@@ -11,6 +10,6 @@
                   <p><img src='Images/2002.jpg'/></p>
         <?php endif; ?>
                   
-    <p><?php echo $content ?></p>  
-    
+    <p><?php echo $content; ?></p>  
+    <p>Posted: <?php echo $date; ?></p>
 </div>
