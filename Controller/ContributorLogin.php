@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use \Model\Dbconnection;
+use \Model\DbConnection;
 
 Class ContributorLogin {
     
@@ -13,7 +13,7 @@ Class ContributorLogin {
             $username = $contributor->getUsername(); 
             $password = $contributor->getPassword();
 
-            $instance = Dbconnection::getInstance();
+            $instance = DbConnection::getInstance();
             $connection = $instance->getConnection();
 
             $stmt = $connection->prepare("SELECT username, password, firstname, lastname
@@ -21,18 +21,18 @@ Class ContributorLogin {
                                           WHERE username =:username AND password =:password");
 
             $stmt->execute([
-                'username'   => $contributor->getUsername(), 
-                'password' => $contributor->getPassword()
+                'username'   => $username, 
+                'password' => $password
                 ]);
 
-            foreach($stmt as $contributor) {
+            foreach($stmt as $details) {
                 echo "This ran";
-                if ($contributor['username'] == $username && $contributor['password'] == $password) {
-                    $firstName = $contributor['firstname'];
-                    $lastName = $contributor['lastname'];
-                    $_SESSION['username'] = $username;
-                    $_SESSION['firstname'] = $firstName;
-                    $_SESSION['lastname'] = $lastName;
+                if ($details['username'] == $username && $details['password'] == $password) {
+                    $contributor->setFirstName($details['firstname']);
+                    $contributor->setLastName($details['lastname']);
+                    $_SESSION['username']  = $username;
+                    $_SESSION['firstname'] = $details['firstname'];
+                    $_SESSION['lastname']  = $details['lastname'];
                     header("Location: index.php");
                 }
             }
