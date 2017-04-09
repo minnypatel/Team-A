@@ -13,6 +13,8 @@ use Model\Article;
 
 use function Controller\display;
 
+session_start();
+
 ?>
 
 <html>

@@ -31,6 +31,8 @@ Class ArticleUpload {
             'filepath' => $article->getImage()->getLocation(),
             ]
         );
+        
+        
     }
     
     private function moveFile(\Model\Article &$article) {

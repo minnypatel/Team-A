@@ -11,6 +11,8 @@ use \Model\File;
 
 use function Controller\display;
 
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
      $article = new Article($_POST['title'], $_POST['content']);
      
