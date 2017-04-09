@@ -1,8 +1,10 @@
 <?php 
-include_once 'Model/dummy-data.php';
-include_once 'Controller/display.php';
-include_once 'Controller/authentication.php';
 
+include_once 'Controller/display.php';
+include_once 'Controller/ContributorLogin.php';
+include_once 'Model/Contributor.php';
+
+use Model\Contributor;
 use function Controller\display;
 
 ?>
@@ -11,10 +13,10 @@ use function Controller\display;
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    Controller\Authentication\login($_POST['username'], $_POST['password']);
+    $contributor = new Contributor($_POST['username'], $_POST['password']);
+    $contributorLogin = new Controller\ContributorLogin();
+    $contributorLogin->login($contributor);
 }
-
-print_r($_SESSION);
 
 ?>
 

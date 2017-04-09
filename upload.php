@@ -11,6 +11,8 @@ use \Model\File;
 
 use function Controller\display;
 
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
      $article = new Article($_POST['title'], $_POST['content']);
      
@@ -29,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
     <head>
         <title>Upload</title>
-        <meta charset="UTF-8">^
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
