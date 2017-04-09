@@ -2,17 +2,17 @@
 
 namespace Model;
 
-include_once 'Dbconnection.php';
+include_once 'DbConnection.php';
 include_once 'File.php';
 
-use \Model\Dbconnection;
+use \Model\DbConnection;
 use \Model\File;
 
 Class ArticleDAO {
 
     protected $connection;
     
-    public function __construct(\Model\Dbconnection $connection) {
+    public function __construct(DbConnection $connection) {
         $this->connection = $connection;
     }
     

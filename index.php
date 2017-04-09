@@ -1,12 +1,12 @@
 <?php
 
 include_once 'Controller/display.php';
-include_once 'Model/Dbconnection.php';
+include_once 'Model/DbConnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/ArticleDAO.php';
 
 use Model\ArticleDAO;
-use Model\Dbconnection;
+use Model\DbConnection;
 use Model\Article;
 
 use function Controller\display;
@@ -28,7 +28,7 @@ session_start();
         <div class="container">
         <div class="main">
             <?php if($_SESSION): ?>
-                    <p>Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'];?></p>
+                    <p>Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
             <?php endif; ?>
             
         <?php
@@ -38,7 +38,12 @@ session_start();
             $array = array_reverse($array);
    
             foreach($array as $thing) {
-                echo display('article', ['title' => $thing->getTitle(), 'filepath' => $thing->getImage()->getLocation(), 'content' => $thing->getContent(), 'date' => date("jS F Y", filemtime($thing->getImage()->getLocation()))]);
+                echo display('article', 
+                            ['title' => $thing->getTitle(),
+                             'filepath' => $thing->getImage()->getLocation(),
+                             'content' => $thing->getContent(),
+                             'date' => date("jS F Y", filemtime($thing->getImage()->getLocation()))
+                            ]);
             }
             
             ?>

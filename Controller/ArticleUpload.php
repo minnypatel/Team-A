@@ -2,13 +2,14 @@
 
 namespace Controller;
 
-use \Model\Dbconnection;
+use \Model\DbConnection;
+use \Model\Article;
 
 Class ArticleUpload {
     
     const InputKey = 'userFile';
 
-    public function upload(\Model\Article $article) {
+    public function upload(Article $article) {
         if ($article->getImage() !== null) {
             $this->moveFile($article);
         }
@@ -16,9 +17,9 @@ Class ArticleUpload {
     }
 
     
-    private function saveArticle(\Model\Article $article) {
+    private function saveArticle(Article $article) {
         
-        $instance = Dbconnection::getInstance();
+        $instance = DbConnection::getInstance();
         $connection = $instance->getConnection();
 
     // Move this to DAO??    
@@ -26,16 +27,14 @@ Class ArticleUpload {
                                       VALUES (:title, :content, :filepath)");
 
         $stmt->execute([
-            'title'   => $article->getTitle(), 
-            'content' => $article->getContent(),
+            'title'    => $article->getTitle(), 
+            'content'  => $article->getContent(),
             'filepath' => $article->getImage()->getLocation()
             ]
-        );
-        
-        
+        );  
     }
     
-    private function moveFile(\Model\Article &$article) {
+    private function moveFile(Article &$article) {
         $file = $article->getImage();
         $dstFile = 'Uploads/'.$file->getName();
         

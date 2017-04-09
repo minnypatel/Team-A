@@ -2,8 +2,8 @@
 
 include_once 'Controller/display.php';
 include_once 'Controller/ContributorLogin.php';
-include_once 'Model/Contributor.php';
 include_once 'Controller/ContributorSignup.php';
+include_once 'Model/Contributor.php';
 
 use Model\Contributor;
 use function Controller\display;

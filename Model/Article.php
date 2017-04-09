@@ -2,7 +2,7 @@
 
 namespace Model;
 
-include_once 'Dbconnection.php';
+include_once 'DbConnection.php';
 
 Class Article {
     
@@ -11,8 +11,8 @@ Class Article {
     protected $content;
     protected $image;
     protected $contributor;
-    protected $date_uploaded;
-    protected $date_modified;
+    protected $dateUploaded;
+    protected $dateModified;
     
     public function __construct($title, $content) {
         $this->title   = $title;

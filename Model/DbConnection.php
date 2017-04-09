@@ -2,7 +2,7 @@
 
 namespace Model;
 
-Class Dbconnection {
+Class DbConnection {
     
     private static $instance = null; 
     private $connection; 
@@ -19,7 +19,7 @@ Class Dbconnection {
 
     public static function getInstance() {
         if (self::$instance == null){
-            self::$instance = new Dbconnection(); 
+            self::$instance = new DbConnection(); 
         }
         return self::$instance;
     }
@@ -28,8 +28,8 @@ Class Dbconnection {
         return $this->connection; 
     }
     
-    public function prepare($z) { 
-        return $this->connection->prepare($z); 
+    public function prepare($stmt) { 
+        return $this->connection->prepare($stmt); 
     }
 }
 ?>

@@ -1,8 +1,8 @@
 <?php
 
-include_once 'Model/Dbconnection.php';
 include_once 'Controller/display.php';
 include_once 'Controller/ArticleUpload.php';
+include_once 'Model/DbConnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/File.php';
 
