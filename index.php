@@ -9,6 +9,7 @@ include_once 'Model/ArticleDAO.php';
 
 use Model\ArticleDAO;
 use Model\Dbconnection;
+use Model\Article;
 
 use function Controller\display;
 
@@ -34,7 +35,7 @@ use function Controller\display;
             $array = array_reverse($array);
    
             foreach($array as $thing) {
-                echo display('article', ['title' => $thing->getTitle(), 'filepath' => $thing->getImage()->getLocation(), 'content' => $thing->getContent()]);
+                echo display('article', ['title' => $thing->getTitle(), 'filepath' => $thing->getImage()->getLocation(), 'content' => $thing->getContent(), 'date' => date("jS F Y", filemtime($thing->getImage()->getLocation()))]);
             }
             
             ?>
