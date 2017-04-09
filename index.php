@@ -26,11 +26,14 @@ session_start();
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
-        <?php echo display('navbar') ; ?>
+        <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
+            <?php if($_SESSION): ?>
+                    <p>Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'];?></p>
+            <?php endif; ?>
             
-            <?php 
+        <?php
             
             $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
             $array = $articleDisplay->getAll();

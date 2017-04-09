@@ -16,7 +16,7 @@ Class ContributorLogin {
             $instance = Dbconnection::getInstance();
             $connection = $instance->getConnection();
 
-            $stmt = $connection->prepare("SELECT username, password
+            $stmt = $connection->prepare("SELECT username, password, firstname, lastname
                                           FROM contributor
                                           WHERE username =:username AND password =:password");
 
@@ -28,8 +28,11 @@ Class ContributorLogin {
             foreach($stmt as $contributor) {
                 echo "This ran";
                 if ($contributor['username'] == $username && $contributor['password'] == $password) {
+                    $firstName = $contributor['firstname'];
+                    $lastName = $contributor['lastname'];
                     $_SESSION['username'] = $username;
-                    var_dump('I was hit');
+                    $_SESSION['firstname'] = $firstName;
+                    $_SESSION['lastname'] = $lastName;
                     header("Location: index.php");
                 }
             }
