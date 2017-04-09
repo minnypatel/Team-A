@@ -1,8 +1,6 @@
 <?php
 
 include_once 'Controller/display.php';
-include_once 'Model/dummy-data.php';
-
 include_once 'Model/Dbconnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/ArticleDAO.php';
