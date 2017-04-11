@@ -38,4 +38,19 @@ Class ContributorDAO
             }
         }
     }
+    
+    public function contributorSignup($contributor) {
+
+            $request = $this->connection->prepare("INSERT INTO contributor (username, firstname, lastname, email, password)
+                                                   VALUES (:username, :firstname, :lastname, :email, :password)");
+
+            $request->execute([
+                'username'  => $contributor->getUsername(),
+                'firstname' => $contributor->getFirstName(),
+                'lastname'  => $contributor->getLastName(),
+                'email'     => $contributor->getEmail(),
+                'password'  => $contributor->getPassword()]);
+    }
+    
+    // add a function which takes care of setting $_SESSION
 }
