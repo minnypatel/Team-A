@@ -9,7 +9,6 @@ use \Model\DbConnection;
 use \Model\File;
 
 Class ArticleDAO {
-
     protected $connection;
     
     public function __construct(DbConnection $connection) {
@@ -32,5 +31,18 @@ Class ArticleDAO {
             $list[] = $article;
         }
         return $list;
+    }
+    
+    public function saveArticle(Article $article) {
+           
+        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath)
+                                      VALUES (:title, :content, :filepath)");
+
+        $stmt->execute([
+            'title'    => $article->getTitle(), 
+            'content'  => $article->getContent(),
+            'filepath' => $article->getImage()->getLocation()
+            ]
+        );  
     }
 }
