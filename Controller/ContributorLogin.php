@@ -41,4 +41,10 @@ Class ContributorLogin {
             echo "login failed";
         }
     }
+    
+    public function logout() {
+        $_SESSION = array();
+        session_destroy();
+        header("location:index.php");
+    }
 }

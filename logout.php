@@ -1,7 +1,8 @@
 <?php
+
+include_once 'Controller/ContributorLogin.php';
+
 session_start();
-session_destroy();
 
-header("location:index.php");
-
-?>
+$contributorLogin = new \Controller\ContributorLogin;
+$contributorLogin->logout();
