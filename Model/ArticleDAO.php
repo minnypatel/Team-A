@@ -42,7 +42,6 @@ Class ArticleDAO {
             'title'    => $article->getTitle(), 
             'content'  => $article->getContent(),
             'filepath' => $article->getImage()->getLocation()
-            ]
-        );  
+            ]);  
     }
 }
