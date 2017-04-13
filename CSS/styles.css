@@ -76,15 +76,12 @@ body {
 }
 
 .container {
-    background: #F2F2F2;
 }
 
 .main {
     overflow: hidden;
     position:relative;
-    top: 40px;  
-    margin: 0 auto;
-    max-width: 600px;
+    top: 70px;  
 }
 
 .article {
