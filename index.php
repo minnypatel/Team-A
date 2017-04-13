@@ -21,6 +21,7 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     </head>
     <body>
@@ -30,7 +31,7 @@ session_start();
             <?php if($_SESSION): ?>
                     <p>Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
             <?php endif; ?>
-            
+                    
         <?php
             
             $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
@@ -47,9 +48,18 @@ session_start();
             }
             
             ?>
-
+                    
         </div>
         </div>
     </body>
+    <footer class="footer">
+        <div>
+                <a href="www.facebook.com" class="fa fa-facebook"></a>
+                <a href="www.twitter.com" class="fa fa-twitter"></a>
+                <a href="www.github.com" class="fa fa-github"></a>
+                <a href="www.instagram.com" class="fa fa-instagram"></a>
+                <a href="www.pinterest.com" class="fa fa-pinterest"></a>
+        </div>
+</footer>
 </html>
 
