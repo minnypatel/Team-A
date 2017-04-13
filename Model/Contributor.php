@@ -2,8 +2,6 @@
 
 namespace Model;
 
-include_once 'DbConnection.php';
-
 Class Contributor {
     
     protected $id;

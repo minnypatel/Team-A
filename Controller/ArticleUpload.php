@@ -2,7 +2,12 @@
 
 namespace Controller;
 
+include_once 'Model/DbConnection.php';
+include_once 'Model/ArticleDAO.php';
+include_once 'Model/Article.php';
+
 use \Model\DbConnection;
+use \Model\ArticleDAO;
 use \Model\Article;
 
 Class ArticleUpload {
@@ -13,25 +18,9 @@ Class ArticleUpload {
         if ($article->getImage() !== null) {
             $this->moveFile($article);
         }
-        $this->saveArticle($article);
-    }
-
-    
-    private function saveArticle(Article $article) {
-        
-        $instance = DbConnection::getInstance();
-        $connection = $instance->getConnection();
-
-    // Move this to DAO??    
-        $stmt = $connection->prepare("INSERT INTO article (title, content, filepath)
-                                      VALUES (:title, :content, :filepath)");
-
-        $stmt->execute([
-            'title'    => $article->getTitle(), 
-            'content'  => $article->getContent(),
-            'filepath' => $article->getImage()->getLocation()
-            ]
-        );  
+        $articleUploader = new ArticleDAO(Dbconnection::getInstance());
+        $articleUploader->saveArticle($article);
+//        header("location:index.php");
     }
     
     private function moveFile(Article &$article) {

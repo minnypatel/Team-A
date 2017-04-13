@@ -2,30 +2,21 @@
 
 namespace Controller;
 
+include_once 'Model/DbConnection.php';
+include_once 'Model/ContributorDAO.php';
+include_once 'Model/Contributor.php';
+
 use \Model\DbConnection;
+use \Model\ContributorDAO;
+use \Model\Contributor;
 
-Class ContributorSignup {
-    
+Class ContributorSignup
+{    
     public function signup($contributor) {
+        
+        $contributorNew = new ContributorDAO(Dbconnection::getInstance());
+        $contributorNew->contributorSignup($contributor);
+        header("Location: login.php");
 
-            $instance = DbConnection::getInstance();
-            $connection = $instance->getConnection();
-
-             $stmt = $connection->prepare("INSERT INTO contributor (username, firstname, lastname, email, password)
-                                           VALUES (:username, :firstname, :lastname, :email, :password)");
-
-            $stmt->execute([
-                'username'  => $contributor->getUsername(),
-                'firstname' => $contributor->getFirstName(),
-                'lastname'  => $contributor->getLastName(),
-                'email'     => $contributor->getEmail(),
-                'password'  => $contributor->getPassword()          
-                ]);
-            
-            $_SESSION['username']  = $contributor->getUsername();
-            $_SESSION['firstname'] = $contributor->getFirstName();
-            $_SESSION['lastname']  = $contributor->getLastName();
-            
-            header("Location: index.php");
         }
     }
