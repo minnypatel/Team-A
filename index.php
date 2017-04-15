@@ -17,7 +17,7 @@ session_start();
 
 <html>
     <head>
-        <title>Homepage</title>
+        <title>HOW home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
@@ -42,6 +42,7 @@ session_start();
                             ['title' => $thing->getTitle(),
                              'filepath' => $thing->getImage()->getLocation(),
                              'content' => $thing->getContent(),
+                             'category' => $thing->getCategory(),
                              'date' => date("jS F Y", filemtime($thing->getImage()->getLocation()))
                             ]);
             }
