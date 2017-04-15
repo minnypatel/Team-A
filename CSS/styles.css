@@ -12,7 +12,7 @@ and open the template in the editor.
 
 
 /*
-B26F37 - $brown
+91756E - $brown
 E3FFC3 - $mint-green
 FDFFF1 - $light grey
 287D79 - $teal
@@ -46,31 +46,48 @@ body {
     padding-bottom: 0;
     display: inline-block; 
     overflow: auto;
-    -webkit-transition: height 0.3s;
-    -moz-transition: height 0.3s;
-    -ms-transition: height 0.3s;
-    -o-transition: height 0.3s;
-    transition: height 0.3s;
-    
 }
 
 .header img {
     display: inline-block;
-    -webkit-transition: height 0.3s;
-    -moz-transition: height 0.3s;
-    -ms-transition: height 0.3s;
-    -o-transition: height 0.3s;
-    transition: height 0.3s;
-}  
+} 
 
-.header .scrolled {
-    height: 60px;
+header.scrolled {
+    height: 50px;
 }
 
-.header .scrolled img {
-    height: 60px;
-    width: 50px;
+header.scrolled img {
+    
+    width: 60px;
+    height: 50px;
 }
+
+#js-navbar.scrolled {
+    background-color: whitesmoke;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    text-decoration: none;
+    z-index: 2;
+    padding: 0;
+    margin: 0px;
+    top: 50px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0)
+}
+
+#js-navbar.unscrolled {
+    background-color: whitesmoke;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    text-decoration: none;
+    z-index: 2;
+    padding: 0;
+    margin: 0px;
+    top: 200px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
 
 /* Adds background colour to the navigation bar */
 .topnav {
@@ -82,8 +99,8 @@ body {
     z-index: 2;
     padding: 0;
     margin: 0px;
-    top: 200px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    top: 200px;
 }
 
 /*@media (max-width: 550px) {
@@ -144,7 +161,6 @@ body {
 
 .container {
     background: whitesmoke;
-    border: 2px solid red;
 }
 
 
@@ -184,16 +200,36 @@ body {
     margin: 0;
 }
 
-#twitterbox {
+/*#twitterbox {
     height: 60%; 
     overflow: scroll;
     overflow-style: scrollbar;
     top: 0;
     position: fixed;
-/*    width: 30.6666666667%;*/
+    width: 30.6666666667%;
     left: 65.3333333333%; 
     margin-top: 240px;
-    /*box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);*/
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+}*/
+
+#twitterbox.scrolled {
+    height: 80%;
+    margin-top: 100px;
+    left: 65.3333333333%;
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
+}
+
+#twitterbox.unscrolled {
+    height: 60%;
+    margin-top: 260px;
+    left: 65.3333333333%;
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
 }
 
 /*.container img {
@@ -215,7 +251,7 @@ body {
      margin: auto;
      margin-top: 20px;
      padding: 15px;
-     background: #A8C44F; 
+     background: #91756E; 
      left: 50%;
      box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
