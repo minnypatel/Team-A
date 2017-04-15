@@ -14,15 +14,12 @@ use function Controller\display;
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $file   = new File($_FILES['userFile']['name']);
+    $file->setLocation($_FILES['userFile']['tmp_name']);
+    
     $article = new Article($_POST['title'], $_POST['content']);
-    echo "this ran ";
-        if (!empty($_FILES['userFile']['name'])) {
-            echo "this ran2 ";
-            $file = new File($_FILES['userFile']['name']);
-            $file->setLocation($_FILES['userFile']['tmp_name']);
-            $article->setImage($file);
-            }
-    echo "this ran3 ";    
+    $article->setImage($file);
+    
     $articleUpload = new Controller\ArticleUpload();
     $articleUpload->upload($article);
 }
