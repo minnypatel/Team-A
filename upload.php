@@ -16,9 +16,9 @@ session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $file   = new File($_FILES['userFile']['name']);
     $file->setLocation($_FILES['userFile']['tmp_name']);
-    
     $article = new Article($_POST['title'], $_POST['content']);
     $article->setImage($file);
+    $article->setCategory($_POST['category']);
     
     $articleUpload = new Controller\ArticleUpload();
     $articleUpload->upload($article);

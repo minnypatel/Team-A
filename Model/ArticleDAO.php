@@ -17,17 +17,18 @@ Class ArticleDAO {
     
     public function getAll() {
         $list = [];
-        $request = $this->connection->prepare('SELECT id, title, content, filepath FROM article');
+        $request = $this->connection->prepare('SELECT id, title, content, filepath, category FROM article');
         $request->execute();
 
         // in this loop use a $artile->setContributor to grab the relevant data from the dbtable
+        // use if statements to allow for blank db columns
         foreach($request as $item) {
             $article = new Article($item['title'], $item['content']);
-            // if there's no image skip the image stage
             $article->setId($item['id']);
             $image = new File();
             $image->setLocation($item['filepath']);
             $article->setImage($image);
+            $article->setCategory($item['category']);
             $list[] = $article;
         }
         return $list;
@@ -35,13 +36,14 @@ Class ArticleDAO {
     
     public function saveArticle(Article $article) {
            
-        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath)
-                                      VALUES (:title, :content, :filepath)");
+        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath, category)
+                                      VALUES (:title, :content, :filepath, :category)");
 
         $stmt->execute([
             'title'    => $article->getTitle(), 
             'content'  => $article->getContent(),
-            'filepath' => $article->getImage()->getLocation()
+            'filepath' => $article->getImage()->getLocation(),
+            'category' => $article->getCategory()
             ]);  
     }
 }

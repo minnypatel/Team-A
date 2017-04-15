@@ -20,7 +20,7 @@ Class ArticleUpload {
         }
         $articleUploader = new ArticleDAO(Dbconnection::getInstance());
         $articleUploader->saveArticle($article);
-        header("location:index.php");
+//        header("location:index.php");
     }
     
     private function convertImageName(&$imageName) {

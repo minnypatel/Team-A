@@ -8,12 +8,17 @@
        name='MAX_FILE_SIZE'
        value ='10000000'/><br />
       
-  Title: <input type='text' name='title' /><br />
-  Content: <textarea  name='content' id='content'></textarea>
-    Image: <input type='file' name='userFile'/><br />
-    <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
+     Title: <input type='text' name='title' /><br />
+  Category: <select name='category'>
+                <option value="Humblebrag">Humblebrag</option>
+                <option value="Handpoured">Handpoured</option>
+                <option value="Hipsperation">Hipsperation</option>
+            </select><br />
+   Content: <textarea  name='content' id='content'></textarea>
+     Image: <input type='file' name='userFile'/><br />
+            <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
     <!-- Add hidden fields to capture contributor and date -->
-    <input type='submit' value='Submit' />  
+            <input type='submit' value='Submit' />
 </form>
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
