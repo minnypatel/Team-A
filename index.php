@@ -4,7 +4,7 @@ include_once 'Controller/display.php';
 include_once 'Model/Dbconnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/ArticleDAO.php';
-include_once 'JavaScript/js.js';
+include 'JavaScript/js.js';
 
 use Model\ArticleDAO;
 use Model\Dbconnection;
@@ -24,13 +24,13 @@ session_start();
         <!--inlcude the skeleton above the styles-->
         <link rel="stylesheet" href="CSS/skeleton.css">
         <link rel="stylesheet" href="CSS/styles.css">
-        <!--<script type="text/javascript" src="JavaScript/js.js"></script>-->
+        <script type="text/javascript" src="JavaScript/js.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Judson|Quando" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster|Lora|Patua+One" rel="stylesheet">
     </head>
     <body>
-        <?php // echo display('navbar'); ?>
+        <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
     <!--use the syntax from skeleton of rows class and nine/three columns around your relevant code-->

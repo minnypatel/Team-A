@@ -1,4 +1,4 @@
-
+alert("file ran");
 
 function resizeHeaderOnScroll() {
   const distanceY = window.pageYOffset || document.documentElement.scrollTop,
@@ -7,8 +7,10 @@ function resizeHeaderOnScroll() {
   
   if (distanceY > shrinkOn) {
     headerEl.classList.add("scrolled");
+    alert("if ran");
   } else {
     headerEl.classList.remove("scrolled");
+    alert("else ran");
   }
 }
 

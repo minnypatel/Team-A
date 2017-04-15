@@ -35,8 +35,6 @@ body {
 
 .header {
     width: 100%;
-    top: 0;
-    left: 0;
     text-align: center;
     background: #287D79; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(#287D79, whitesmoke); /* For Safari 5.1 to 6.0 */
@@ -53,6 +51,7 @@ body {
     -ms-transition: height 0.3s;
     -o-transition: height 0.3s;
     transition: height 0.3s;
+    
 }
 
 .header img {
@@ -144,8 +143,10 @@ body {
 }
 
 .container {
-    background: white;
+    background: whitesmoke;
+    border: 2px solid red;
 }
+
 
 .main {
     overflow: hidden;
