@@ -52,14 +52,6 @@ session_start();
         </div>
         </div>
     </body>
-    <footer class="footer">
-        <div>
-                <a href="www.facebook.com" class="fa fa-facebook"></a>
-                <a href="www.twitter.com" class="fa fa-twitter"></a>
-                <a href="www.github.com" class="fa fa-github"></a>
-                <a href="www.instagram.com" class="fa fa-instagram"></a>
-                <a href="www.pinterest.com" class="fa fa-pinterest"></a>
-        </div>
-</footer>
+        <?php echo display('footer'); ?>
 </html>
 
