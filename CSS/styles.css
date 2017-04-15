@@ -9,23 +9,89 @@ and open the template in the editor.
 */
 
 
+
+
+/*
+B26F37 - $brown
+E3FFC3 - $mint-green
+FDFFF1 - $light grey
+287D79 - $teal
+B27B76 - $pink*/
+
+/*font-family: 'Quando', serif;
+font-family: 'Judson', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Cabin', sans-serif;
+font-family: 'Patua One', cursive;
+font-family: 'Lora', serif;*/
+
+
 /* fix for weird gap on right hand side*/ 
 
 body {
     margin: 0px;
+    background: whitesmoke;
+}
+
+.header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: #287D79; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#287D79, whitesmoke); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#287D79, whitesmoke); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#287D79, whitesmoke); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#287D79, whitesmoke); /* Standard syntax */
+    position: fixed;
+    z-index: 1;
+    padding-bottom: 0;
+    display: inline-block; 
+    overflow: auto;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    transition: height 0.3s;
+}
+
+.header img {
+    display: inline-block;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    transition: height 0.3s;
+}  
+
+.header .scrolled {
+    height: 60px;
+}
+
+.header .scrolled img {
+    height: 60px;
+    width: 50px;
 }
 
 /* Adds background colour to the navigation bar */
 .topnav {
-    background-color: #333;
+    background-color: whitesmoke;
     overflow: hidden;
     position: fixed;
     width: 100%;
     text-decoration: none;
-    z-index: 1;
+    z-index: 2;
+    padding: 0;
+    margin: 0px;
+    top: 200px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
 
-
+/*@media (max-width: 550px) {
+    .header img {
+        object-fit: scale-down; 
+    }
+}*/
 /*Makes sure the list has no padding/margin*/ 
 
 .topnav ul {
@@ -37,18 +103,20 @@ body {
 /* Style the links inside the navigation bar */
 .topnav li { 
     display: block;
-    color: white;
+    color: teal;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     text-decoration: none;
     font-size: 17px;
+    margin: 0;
 }
 
 .topnav li a {
     text-decoration: none;
-    color: white;
+    color: #216663;
     padding: 10px 20px;
+    font-family: 'Patua One', cursive;
 }
 
 .topnav .align-left {
@@ -63,37 +131,45 @@ body {
 
 /* Change the color of links on hover */
 .topnav li a:hover {
-    background-color: #d6acad;
-    color: black;
+    background-color: #A8C44F;
+    color: whitesmoke;
     text-decoration: none;
-    padding: 10px 20px;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #4CAF50;
+    font-size: 20px;
+    background-color: #6E5D5A;
     color: white;  
 }
 
 .container {
+    background: white;
 }
 
 .main {
     overflow: hidden;
     position:relative;
-    top: 70px;  
+    top: 230px;  
+    background: whitesmoke;
+    width: 100%;
 }
 
 .article {
-    max-width: 600px;
+    width: auto;
     padding: 10px;
+    padding-top: 20px;
     background: white;
+    top: 260px;
     
 }
 
 .article img {
-    max-width: 580px;
+    max-width: 100%;
+    height: auto;
+/*    max-width: 580px;*/
     margin: 0;
+    text-align: center;
 }
 
 .article h3 {
@@ -106,3 +182,127 @@ body {
 .article p {
     margin: 0;
 }
+
+#twitterbox {
+    height: 60%; 
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
+/*    width: 30.6666666667%;*/
+    left: 65.3333333333%; 
+    margin-top: 240px;
+    /*box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);*/
+}
+
+/*.container img {
+    height: auto;
+    width: auto;
+}*/
+
+@media (max-width: 550px) {
+    #twitterbox {
+        display: none;
+    }
+}
+
+/* LOGIN PAGE */ 
+
+.form {
+     font-family: 'Lora', serif;
+     max-width: 400px;
+     margin: auto;
+     margin-top: 20px;
+     padding: 15px;
+     background: #A8C44F; 
+     left: 50%;
+     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+.form h1 {
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+
+.form h2 {
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+    text-align: center;
+}
+
+.form p {
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form input[type='text'] {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 90%;
+    background: whitesmoke;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: #555;
+    font: 18px 'Lora', serif;
+}
+
+.form input[type='password']{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 90%;
+    background: whitesmoke;
+    margin-top: 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: #555;
+    font: 18px 'Lora', serif;
+}
+
+#signupbutton {
+    width: 120px;
+    height: 100px;
+    transition: all .2s ease-in-out; 
+    display: inline-block;
+    float: left;
+}
+
+#loginbutton {
+    width: 120px;
+    height: 100px;
+    transition: all .2s ease-in-out; 
+    display: inline-block;
+    float: left;
+}
+
+
+#loginbutton:hover,
+#signupbutton:hover {
+    transform: scale(1.3);
+}
+
