@@ -33,9 +33,10 @@ Class ContributorDAO
         foreach($request as $details) {
             if ($details['username'] == $contributor->getUsername() 
              && $details['password'] == $contributor->getPassword()) {
-//                    $_SESSION['firstname'] = $details['firstname'];
-//                    $_SESSION['lastname']  = $details['lastname'];
-                    $_SESSION['id'] = $details['id'];
+                    $_SESSION['username']  = $details['username'];
+                    $_SESSION['firstname'] = $details['firstname'];
+                    $_SESSION['lastname']  = $details['lastname'];
+                    $_SESSION['id']        = $details['id'];
             }
         }
     }
