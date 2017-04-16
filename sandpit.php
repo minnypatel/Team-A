@@ -10,5 +10,5 @@ use Model\DbConnection;
 echo "This printed";
 $articleDisplay = new ArticleDAO(DbConnection::getInstance());
 echo "This printed2";
-print_r($articleDisplay->getAll());
+print_r($articleDisplay->getAll("Humblebrag"));
 echo "This printed3";

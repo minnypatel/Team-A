@@ -17,7 +17,7 @@ session_start();
 
 <html>
     <head>
-        <title>HOW home</title>
+        <title>HOW</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
@@ -29,13 +29,21 @@ session_start();
         <div class="container">
         <div class="main">
             <?php if($_SESSION): ?>
-                    <p>Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
+                    <h3 class="welcome">Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></h3>
+            <?php endif; ?>
+            <?php if($_GET): ?>        
+                    <h3 class="category"><?php echo $_GET['category']; ?></h3>
             <?php endif; ?>
                     
         <?php
             
-            $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
-            $array = $articleDisplay->getAll();
+            if(isset($_GET['category'])) {
+                $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
+                $array = $articleDisplay->getCategory($_GET['category']);
+            } else {
+                $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
+                $array = $articleDisplay->getAll();    
+            }
             $array = array_reverse($array);
    
             foreach($array as $article) {

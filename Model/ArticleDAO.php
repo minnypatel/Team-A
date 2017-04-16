@@ -17,11 +17,26 @@ Class ArticleDAO {
     
     public function getAll() {
         $list = [];
-        $request = $this->connection->prepare('SELECT id, title, content, filepath, category FROM article');
+        $request = $this->connection->prepare("SELECT id, title, content, filepath, category FROM article");
         $request->execute();
 
-        // in this loop use a $artile->setContributor to grab the relevant data from the dbtable
-        // use if statements to allow for blank db columns
+        foreach($request as $item) {
+            $article = new Article($item['title'], $item['content']);
+            $article->setId($item['id']);
+            $image = new File();
+            $image->setLocation($item['filepath']);
+            $article->setImage($image);
+            $article->setCategory($item['category']);
+            $list[] = $article;
+        }
+        return $list;
+    }
+    
+    public function getCategory($thing) {
+        $list = [];
+        $request = $this->connection->prepare("SELECT id, title, content, filepath, category FROM article WHERE category = :thing");
+        $request->execute(['thing' => $thing]);
+        
         foreach($request as $item) {
             $article = new Article($item['title'], $item['content']);
             $article->setId($item['id']);
