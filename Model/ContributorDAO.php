@@ -20,7 +20,7 @@ Class ContributorDAO
         
         // try/catch all of this to create failed login?
         
-        $request = $this->connection->prepare("SELECT username, password, firstname, lastname
+        $request = $this->connection->prepare("SELECT id, username, password, firstname, lastname
                                       FROM contributor
                                       WHERE username =:username AND password =:password");
 
@@ -33,8 +33,9 @@ Class ContributorDAO
         foreach($request as $details) {
             if ($details['username'] == $contributor->getUsername() 
              && $details['password'] == $contributor->getPassword()) {
-                    $_SESSION['firstname'] = $details['firstname'];
-                    $_SESSION['lastname']  = $details['lastname'];
+//                    $_SESSION['firstname'] = $details['firstname'];
+//                    $_SESSION['lastname']  = $details['lastname'];
+                    $_SESSION['id'] = $details['id'];
             }
         }
     }

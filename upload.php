@@ -14,10 +14,12 @@ use function Controller\display;
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    print_r($_POST);
     $file   = new File($_FILES['userFile']['name']);
     $file->setLocation($_FILES['userFile']['tmp_name']);
     $article = new Article($_POST['title'], $_POST['content']);
     $article->setImage($file);
+//    $article->setContributor($contributor);
     $article->setCategory($_POST['category']);
     
     $articleUpload = new Controller\ArticleUpload();
