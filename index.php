@@ -4,8 +4,10 @@ include_once 'Controller/display.php';
 include_once 'Model/DbConnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/ArticleDAO.php';
+include_once 'Model/ContributorDAO.php';
 
 use Model\ArticleDAO;
+use Model\ContributorDAO;
 use Model\DbConnection;
 use Model\Article;
 
@@ -28,7 +30,9 @@ session_start();
         <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
-            <?php if($_SESSION): ?>
+            <?php if($_SESSION): 
+                    $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
+                    $contributorConstruction->build($_SESSION['username']); // build the contributor here ?>
                     <h3 class="welcome">Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></h3>
             <?php endif; ?>
             <?php if($_GET): ?>        

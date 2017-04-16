@@ -11,9 +11,8 @@ Class Contributor {
     protected $email;
     protected $password;
             
-    public function __construct($username, $password) {
+    public function __construct($username) {
             $this->username = $username;
-            $this->password = $password;
     }
     
     public function getId() {
