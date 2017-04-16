@@ -38,13 +38,13 @@ session_start();
             $array = $articleDisplay->getAll();
             $array = array_reverse($array);
    
-            foreach($array as $thing) {
+            foreach($array as $article) {
                 echo display('article', 
-                            ['title' => $thing->getTitle(),
-                             'filepath' => $thing->getImage()->getLocation(),
-                             'content' => $thing->getContent(),
-                             'category' => $thing->getCategory(),
-                             'date' => date("jS F Y", filemtime($thing->getImage()->getLocation()))
+                            ['title' => $article->getTitle(),
+                             'filepath' => $article->getImage()->getLocation(),
+                             'content' => $article->getContent(),
+                             'category' => $article->getCategory(),
+                             'date' => date("jS F Y", filemtime($article->getImage()->getLocation()))
                             ]);
             }
             
