@@ -18,11 +18,9 @@ Class ArticleUpload {
         if ($article->getImage() !== null) {
             $this->moveFile($article);
         }
-        echo "POST\n"; print_r($_POST); echo "\n";
-        echo "ARTICLE CLASS\n"; print_r($article); echo "\n";
         $articleUploader = new ArticleDAO(Dbconnection::getInstance());
         $articleUploader->saveArticle($article);
-//        header("location:index.php");
+        header("location:index.php");
     }
     
     private function convertImageName(&$imageName) {

@@ -17,33 +17,45 @@ Class ArticleDAO {
     
     public function getAll() {
         $list = [];
-        $request = $this->connection->prepare("SELECT id, title, content, filepath, category FROM article");
+        $request = $this->connection->prepare("SELECT id, title, content, filepath, category, contributor FROM article");
         $request->execute();
 
         foreach($request as $item) {
             $article = new Article($item['title'], $item['content']);
             $article->setId($item['id']);
+            
             $image = new File();
             $image->setLocation($item['filepath']);
             $article->setImage($image);
+            
             $article->setCategory($item['category']);
+            
+            $contributor = new Contributor($item['contributor']);
+            $article->setContributor($contributor);
+            
             $list[] = $article;
         }
         return $list;
     }
     
-    public function getCategory($thing) {
+    public function getCategory($hipsterCat) {
         $list = [];
-        $request = $this->connection->prepare("SELECT id, title, content, filepath, category FROM article WHERE category = :thing");
-        $request->execute(['thing' => $thing]);
+        $request = $this->connection->prepare("SELECT id, title, content, filepath, category, contributor FROM article WHERE category = :hipsterCat");
+        $request->execute(['hipsterCat' => $hipsterCat]);
         
         foreach($request as $item) {
             $article = new Article($item['title'], $item['content']);
             $article->setId($item['id']);
+            
             $image = new File();
             $image->setLocation($item['filepath']);
             $article->setImage($image);
+            
             $article->setCategory($item['category']);
+            
+            $contributor = new Contributor($item['contributor']);
+            $article->setContributor($contributor);
+            
             $list[] = $article;
         }
         return $list;
@@ -51,14 +63,15 @@ Class ArticleDAO {
     
     public function saveArticle(Article $article) {
            
-        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath, category)
-                                      VALUES (:title, :content, :filepath, :category)");
+        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath, category, contributor)
+                                      VALUES (:title, :content, :filepath, :category, :contributor)");
 
         $stmt->execute([
             'title'    => $article->getTitle(), 
             'content'  => $article->getContent(),
             'filepath' => $article->getImage()->getLocation(),
-            'category' => $article->getCategory()
+            'category' => $article->getCategory(),
+            'contributor' => $article->getContributor()->getUsername()
             ]);  
     }
 }

@@ -4,7 +4,11 @@ namespace Model;
 
 include_once 'DbConnection.php';
 include_once 'File.php';
+include_once 'ContributorDAO.php';
+include_once 'Contributor.php';
 
+use Model\Contributor;
+use \Model\ContributorDAO;
 use \Model\DbConnection;
 use \Model\File;
 
@@ -21,8 +25,8 @@ Class ContributorDAO
         // try/catch all of this to create failed login?
         
         $request = $this->connection->prepare("SELECT id, username, password, firstname, lastname
-                                      FROM contributor
-                                      WHERE username =:username AND password =:password");
+                                                 FROM contributor
+                                                WHERE username =:username AND password =:password");
 
         $request->execute([
             'username'   => $contributor->getUsername(), 
@@ -37,22 +41,26 @@ Class ContributorDAO
         }
     }
     
-    public function build($username) {
+    public function buildContributorObject($username) {
         
         $request = $this->connection->prepare("SELECT id, firstname, lastname, email
-                                      FROM contributor
-                                      WHERE username =:username");
+                                                 FROM contributor
+                                                WHERE username =:username");
 
         $request->execute([
             'username'   => $username
             ]);
         
+        $contributor = new Contributor($username);
+        
         foreach($request as $details) {
-            $_SESSION['id']         = $details['id'];
-            $_SESSION['firstname']  = $details['firstname'];
-            $_SESSION['lastname']   = $details['lastname'];
-            $_SESSION['email']      = $details['email'];   
+            $contributor->setId($details['id']);
+            $contributor->setFirstName($details['firstname']);
+            $contributor->setLastName($details['lastname']);
+            $contributor->setEmail($details['email']); 
         }
+        
+        return $contributor;
     }
     
     public function contributorSignup($contributor) {
