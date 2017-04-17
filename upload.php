@@ -45,11 +45,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
         <!--<script type="text/javascript" src='JavaScript/uploadFormValidation.js'>-->
         <script type=text/javascript">
             function validateForm() 
                 {
-                    if (document.forms["upload"]["title"].value === "") {
+                    var x = document.forms["upload"]["title"].value;
+                    if (x === "") {
                         alert("Name must be filled out");
                         return false;
                     }

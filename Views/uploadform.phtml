@@ -1,9 +1,9 @@
 
 
-<form  action='upload.php'
-       name='upload'
+<form  name='upload'
+       action='upload.php'
        method='post'
-       onsubmit='return validateForm()'
+       onsubmit="return validateForm()"
        enctype="multipart/form-data">
 
 <input type='hidden'
@@ -22,5 +22,5 @@
             <input type='submit' value='Submit' />
 </form>
 
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+
 <script>tinymce.init({ selector:'textarea' });</script>
