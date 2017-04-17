@@ -1,49 +1,21 @@
 <form action="" method="POST">
     
-    <div class="row">
-        <div class="form">
-         <h1 class="one column">
-             <label for="username">Username: </label>
-             <input name="username" type="text" placeholder="Username"/>
-         </h1>
-
-         <h1>
-            <label for="password">Password: </label>
-            <input name="password" type="password" placeholder="Password"/>
-         </h1>
-    </div>
-        <div class="buttons">
-            <button type="submit" id="loginbutton"><img src="Images/loginbutton.png">  
-        </div>
-        <p> Not already a member?</p>
-        <div class="buttons">
-            <a href="signup.php"><img src="Images/signupbutton.png" id="signupbutton"></a>
-        </div> 
-    </div>   
+    <div class="login-form">
+        
+        <!--<h1><label for="username">Username:</label></h1>-->
+        <p><input name="username" type="text" placeholder="Username"/></p>
+        
+        <!--<h1><label for="password">Password:</label></h1>-->
+        <p><input name="password" type="password" placeholder="Password"/></p>
+        
+        <button type="submit" class="button">Log in</button>
+        
+        <p>Not a member yet?</p>
+        
+        <h2><a href="signup.php">Sign up</h2>
+        
+    </div>    
+    
 </form>
-
-<!--<form action="" method="POST">
-<div class="login">
-		<div class="login-screen">
-			<div class="app-title">
-				<h1></h1>
-			</div>
-
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="login-name">
-				<label class="login-field-icon fui-user" for="login-name"></label>
-				</div>
-
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
-				</div>
-
-				<a class="btn btn-primary btn-large btn-block" href="#">Log in</a>
-                                <p>Not already a member?</p>
-				<a class="login-link" href="#">Sign up here</a>
-			</div>
-		</div>
-	</div>
-</form>-->
+    
+    
