@@ -16,7 +16,10 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contributor = new Contributor($_POST['username']);
-    $contributor->setPassword($_POST['password']);
+    
+    $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $contributor->setPassword($hash);
+    
     $contributor->setFirstName($_POST['firstname']);
     $contributor->setLastName($_POST['lastname']);
     $contributor->setEmail($_POST['emailaddress']);
