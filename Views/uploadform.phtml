@@ -1,7 +1,9 @@
 
 
-<form  action="upload.php" 
-       method="post"
+<form  action='upload.php'
+       name='uploadForm'
+       method='post'
+       onsubmit='return validateForm()'
        enctype="multipart/form-data">
 
 <input type='hidden'
