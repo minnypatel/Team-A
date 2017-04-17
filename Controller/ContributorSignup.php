@@ -16,7 +16,7 @@ Class ContributorSignup
         
         $contributorNew = new ContributorDAO(Dbconnection::getInstance());
         $contributorNew->contributorSignup($contributor);
-        header("Location: login.php");
+//        header("Location: login.php");
 
         }
     }
