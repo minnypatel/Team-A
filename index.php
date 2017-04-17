@@ -52,10 +52,10 @@ session_start();
 
 
         <?php
-            
-            if(isset($_GET['category'])) {
+            $var = filter_input(INPUT_GET, 'category');    
+            if(isset($var)) {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
-                $array = $articleDisplay->getCategory($_GET['category']);
+                $array = $articleDisplay->getCategory($var);
             } else {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
                 $array = $articleDisplay->getAll();
