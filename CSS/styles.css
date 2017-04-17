@@ -356,7 +356,7 @@ form input[type='password']{
 .buttons {
     border: red solid 2px;
     width: 360px;
-    text-align: center;
+/*    text-align: center;*/
     position: relative;
     display: inline-block;
     top: 20px;
@@ -370,16 +370,19 @@ form input[type='password']{
     width: 120px;
     height: 100px;
     transition: all .2s ease-in-out; 
-    left: 100%;
     border: 2px solid green;
+    float: left;
+    left: 50%;
 }
 
 #loginbutton {
     width: 120px;
     height: 100px;
     transition: all .2s ease-in-out; 
-    left: 0%;
     border: 2px solid aqua;
+    float: right;
+    left: 0%;
+
 }
 
 
