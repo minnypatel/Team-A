@@ -2,10 +2,11 @@
 
 include_once 'Controller/display.php';
 include_once 'Controller/ContributorLogin.php';
-include_once 'Model/Contributor.php';
 include_once 'Controller/ContributorSignup.php';
+include_once 'Model/Contributor.php';
 
 use Model\Contributor;
+//use Controller\ContributorSignup;
 use function Controller\display;
 
 ?>
@@ -14,7 +15,8 @@ use function Controller\display;
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username'], $_POST['password']);
+    $contributor = new Contributor($_POST['username']);
+    $contributor->setPassword($_POST['password']);
     $contributor->setFirstName($_POST['firstname']);
     $contributor->setLastName($_POST['lastname']);
     $contributor->setEmail($_POST['emailaddress']);

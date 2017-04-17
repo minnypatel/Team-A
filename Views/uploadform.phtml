@@ -1,22 +1,24 @@
 
+
 <form  action="upload.php" 
        method="post"
        enctype="multipart/form-data">
 
 <input type='hidden'
        name='MAX_FILE_SIZE'
-       value ='10000000'/><br />
+       value ='10000000'/>
       
-  Title: <input type='text' name='title' /><br />
-Content: <input type='text' name='content' /><br />
-  Image: <input type='file' name='userFile'/><br />
-  
-  <!-- Add hidden fields to capture contributor and date -->
-  
-         <!--  Comment:<br />
-         <textarea name='comment' id='comment'></textarea><br />-->
-         <!--  <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />-->
-
-         <input type='submit' value='Submit' />  
+     Title: <input type='text' name='title' id='title' /><br />
+  Category: <select name='category' id='category'>
+                <option value="Humblebrag">Humblebrag</option>
+                <option value="Handpoured">Handpoured</option>
+                <option value="Hipsperation">Hipsperation</option>
+            </select><br />
+   Content: <textarea  name='content' id='content'></textarea>
+     Image: <input type='file' name='userFile'/><br />
+            <input type='hidden' name='contributor' value='' />
+            <input type='submit' value='Submit' />
 </form>
 
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>

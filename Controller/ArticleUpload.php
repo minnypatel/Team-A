@@ -2,42 +2,43 @@
 
 namespace Controller;
 
-use \Model\Dbconnection;
+include_once 'Model/DbConnection.php';
+include_once 'Model/ArticleDAO.php';
+include_once 'Model/Article.php';
+
+use \Model\DbConnection;
+use \Model\ArticleDAO;
+use \Model\Article;
 
 Class ArticleUpload {
     
     const InputKey = 'userFile';
 
-    public function upload(\Model\Article $article) {
+    public function upload(Article $article) {
         if ($article->getImage() !== null) {
             $this->moveFile($article);
         }
-        $this->saveArticle($article);
-    }
-
-    
-    private function saveArticle(\Model\Article $article) {
-        
-        $instance = Dbconnection::getInstance();
-        $connection = $instance->getConnection();
-
-    // Move this to DAO??    
-        $stmt = $connection->prepare("INSERT INTO article (title, content, filepath)
-                                      VALUES (:title, :content, :filepath)");
-
-        $stmt->execute([
-            'title'   => $article->getTitle(), 
-            'content' => $article->getContent(),
-            'filepath' => $article->getImage()->getLocation()
-            ]
-        );
-        
-        
+        $articleUploader = new ArticleDAO(Dbconnection::getInstance());
+        $articleUploader->saveArticle($article);
+        header("location:index.php");
     }
     
-    private function moveFile(\Model\Article &$article) {
+    private function convertImageName(&$imageName) {
+        $array = str_split($imageName);
+        foreach($array as &$i) {
+            if ($i == " ") {
+                $i = "-";
+            }
+        }
+        $imageName = implode($array);
+    }
+    
+    private function moveFile(Article &$article) {
         $file = $article->getImage();
-        $dstFile = 'Uploads/'.$file->getName();
+        $imageName = $file->getName();
+        $this->convertImageName($imageName);
+        
+        $dstFile = 'Uploads/'.$imageName;
         
         if (!move_uploaded_file($file->getLocation(), $dstFile)) {
             throw new \Exception("Handle Error");    

@@ -2,8 +2,6 @@
 
 namespace Model;
 
-include_once 'Dbconnection.php';
-
 Class Article {
     
     protected $id;
@@ -11,8 +9,9 @@ Class Article {
     protected $content;
     protected $image;
     protected $contributor;
-    protected $date_uploaded;
-    protected $date_modified;
+    protected $category;
+    protected $dateUploaded;
+    protected $dateModified;
     
     public function __construct($title, $content) {
         $this->title   = $title;
@@ -49,5 +48,21 @@ Class Article {
     
     public function setImage(File $image) {
         $this->image = $image;
+    }
+    
+    public function getContributor() {
+        return $this->contributor;
+    }
+    
+    public function setContributor(Contributor $contributor) {
+        $this->contributor = $contributor;
+    }
+    
+    public function getCategory() {
+        return $this->category;
+    }
+    
+    public function setCategory($category) {
+        $this->category = $category;
     }
 }

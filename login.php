@@ -13,7 +13,8 @@ use function Controller\display;
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username'], $_POST['password']);
+    $contributor = new Contributor($_POST['username']);
+    $contributor->setPassword($_POST['password']);
     $contributorLogin = new Controller\ContributorLogin();
     $contributorLogin->login($contributor);
 }
@@ -23,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <html>
     <head>        
-        <title>Homepage</title>
+        <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">

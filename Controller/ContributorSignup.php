@@ -2,39 +2,21 @@
 
 namespace Controller;
 
-use \Model\Dbconnection;
+include_once 'Model/DbConnection.php';
+include_once 'Model/ContributorDAO.php';
+include_once 'Model/Contributor.php';
 
-Class ContributorSignup {
-    
+use \Model\DbConnection;
+use \Model\ContributorDAO;
+use \Model\Contributor;
+
+Class ContributorSignup
+{    
     public function signup($contributor) {
         
-        //if(isset($_POST["username"], $_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["password"])) {     
-            
-            $username = $contributor->getUsername(); 
-            $firstName = $contributor->getFirstName(); 
-            $lastName = $contributor->getLastName();
-            $email = $contributor->getEmail(); 
-            $password = $contributor->getPassword();
+        $contributorNew = new ContributorDAO(Dbconnection::getInstance());
+        $contributorNew->contributorSignup($contributor);
+        header("Location: login.php");
 
-            $instance = Dbconnection::getInstance();
-            $connection = $instance->getConnection();
-
-             $stmt = $connection->prepare("INSERT INTO contributor (username, firstname, lastname, email, password)
-                                           VALUES (:username, :firstname, :lastname, :email, :password)");
-
-            $stmt->execute([
-                'username'   => $username, 
-                'firstname' => $firstName,
-                'lastname' => $lastName,
-                'email' => $email,
-                'password' => $password          
-                ]);
-            
-            $_SESSION['username'] = $username;
-            $_SESSION['firstname'] = $firstName;
-            $_SESSION['lastname'] = $lastName;
-            
-            header("Location: index.php");
         }
     }
-//}

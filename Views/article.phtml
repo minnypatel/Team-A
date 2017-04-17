@@ -1,5 +1,5 @@
-<div class="article"> 
-     
+<div class="article">
+
     <h3><?php echo $title; ?></h3>
         
         <?php if($filepath != null): ?>
@@ -8,9 +8,10 @@
                   <h3>THIS RAN</h3>
                   <p><img src='Images/2002.jpg'/></p>
         <?php endif; ?>
-                  
-        <p>Posted: <?php echo $date; ?></p> 
-      
-        <p><?php echo $content; ?></p>  
-       
+
+    <p>Category: <?php echo $category; ?></p>  
+    <p>Posted: <?php echo $date; ?></p>
+    <p>Author: <?php echo $contributor; ?></p>
+    <p><?php echo $content; ?></p>
+
 </div>
