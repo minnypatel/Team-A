@@ -1,10 +1,12 @@
 
 function validateForm() 
 {
-    if (document.forms["uploadForm"]["title"].value === "") {
+    if (document.forms["upload"]["title"].value === "") {
         alert("Name must be filled out");
         return false;
     }
+    
+    
     
     
     
