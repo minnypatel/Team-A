@@ -91,6 +91,3 @@ window.addEventListener('scroll', resizeTwitterFeedOnScroll);
 
 
 
-
-
-

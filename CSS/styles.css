@@ -8,30 +8,24 @@ and open the template in the editor.
     Author     : kirstyjames
 */
 
-
-
-
 /*
 91756E - $brown
 E3FFC3 - $mint-green
 FDFFF1 - $light grey
 287D79 - $teal
-B27B76 - $pink*/
+B27B76 - $pink
+BDD190- green*/
+
 
 /*font-family: 'Quando', serif;
 font-family: 'Judson', serif;
 font-family: 'Lobster', cursive;
 font-family: 'Cabin', sans-serif;
 font-family: 'Patua One', cursive;
-font-family: 'Lora', serif;*/
+font-family: 'Lora', serif;
+font-family: 'Grand Hotel', cursive;*/
 
-
-/* fix for weird gap on right hand side*/ 
-
-body {
-    margin: 0px;
-    background: whitesmoke;
-}
+/* HEADER AND NAVIGATION */
 
 .header {
     width: 100%;
@@ -46,20 +40,32 @@ body {
     padding-bottom: 0;
     display: inline-block; 
     overflow: auto;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
 .header img {
     display: inline-block;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 } 
 
 header.scrolled {
     height: 50px;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
-header.scrolled img {
-    
+header.scrolled img {    
     width: 60px;
     height: 50px;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: linear;
+}
+
+#js-navbar {
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
 #js-navbar.scrolled {
@@ -72,7 +78,9 @@ header.scrolled img {
     padding: 0;
     margin: 0px;
     top: 50px;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0)
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    transition: 0.25s;
+    -webkit-transition-timing-function: linear;
 }
 
 #js-navbar.unscrolled {
@@ -86,6 +94,8 @@ header.scrolled img {
     margin: 0px;
     top: 200px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    transition: 0.3s;
+    -webkit-transition-timing-function: linear;
 }
 
 
@@ -98,16 +108,13 @@ header.scrolled img {
     text-decoration: none;
     z-index: 2;
     padding: 0;
-    margin: 0px;
+    margin-bottom: 20px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
     top: 200px;
+    transition: height 1s;
+    -webkit-transition-timing-function: linear;
 }
 
-/*@media (max-width: 550px) {
-    .header img {
-        object-fit: scale-down; 
-    }
-}*/
 /*Makes sure the list has no padding/margin*/ 
 
 .topnav ul {
@@ -144,7 +151,6 @@ header.scrolled img {
 }
 
 
-
 /* Change the color of links on hover */
 .topnav li a:hover {
     background-color: #A8C44F;
@@ -159,77 +165,99 @@ header.scrolled img {
     color: white;  
 }
 
-.container {
-    background: whitesmoke;
+/* MAIN CONTENT*/ 
+
+/* fix for weird gap on right hand side*/ 
+
+body {
+    margin: 0px;
+    background: lightgray;
 }
 
+.container {
+    width: 100%;
+}
 
 .main {
     overflow: hidden;
     position:relative;
     top: 230px;  
-    background: whitesmoke;
+    background: lightgray;
     width: 100%;
 }
 
+/*ARTICLE COLUMNS*/ 
+
 .article {
     width: auto;
-    padding: 10px;
-    padding-top: 20px;
-    background: white;
-    top: 260px;
-    
+    padding: 0px;
+    margin-top: 30px;
+    background: whitesmoke;
+    top: 300px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    /*border: 2px green solid;*/
 }
 
 .article img {
     max-width: 100%;
     height: auto;
-/*    max-width: 580px;*/
     margin: 0;
     text-align: center;
 }
 
 .article h3 {
+    width: 100%;
     text-align: center;
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Grand Hotel', cursive;
     font-size: 50px;
+    color: black;
+    /*text-shadow: 1px 1px 2px black;*/ 
     margin: 0;
 }
 
 .article p {
-    margin: 0;
+    margin-left: 5px;
 }
 
-/*#twitterbox {
-    height: 60%; 
+
+/* TWITTER FEED COLUMN */ 
+
+#twitterbox {
+    max-height: 85%; 
     overflow: scroll;
     overflow-style: scrollbar;
     top: 0;
     position: fixed;
     width: 30.6666666667%;
     left: 65.3333333333%; 
-    margin-top: 240px;
-    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
-}*/
+    top: 260px;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
 
 #twitterbox.scrolled {
-    height: 80%;
+    height: 85%;
     margin-top: 100px;
     left: 65.3333333333%;
     overflow: scroll;
     overflow-style: scrollbar;
     top: 0;
     position: fixed;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
 #twitterbox.unscrolled {
-    height: 60%;
+    height: 63%;
     margin-top: 260px;
     left: 65.3333333333%;
     overflow: scroll;
     overflow-style: scrollbar;
     top: 0;
     position: fixed;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
 /*.container img {
@@ -249,14 +277,18 @@ header.scrolled img {
      font-family: 'Lora', serif;
      max-width: 400px;
      margin: auto;
-     margin-top: 20px;
+     margin-top: 50px;
      padding: 15px;
-     background: #91756E; 
-     left: 50%;
+     background: #A8C44F; 
+     left: 0%;
      box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+     height: 200px;
+     position: relative;
+     z-index: 222;
+     
 }
 
-.form h1 {
+form h1 {
     padding-top: 15px;
     font-size: 20px;
     font-weight: 300;
@@ -265,7 +297,7 @@ header.scrolled img {
     margin: -16px -16px 16px -16px;
 }
 
-.form h2 {
+form h2 {
     padding: 0;
     font-size: 15px;
     font-weight: 300;
@@ -275,7 +307,7 @@ header.scrolled img {
     text-align: center;
 }
 
-.form p {
+form p {
     padding: 0;
     font-size: 15px;
     font-weight: 300;
@@ -285,7 +317,7 @@ header.scrolled img {
     text-align: center;
 }
 
-.form input[type='text'] {
+form input[type='text'] {
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -303,7 +335,7 @@ header.scrolled img {
     font: 18px 'Lora', serif;
 }
 
-.form input[type='password']{
+form input[type='password']{
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -321,20 +353,33 @@ header.scrolled img {
     font: 18px 'Lora', serif;
 }
 
+.buttons {
+    border: red solid 2px;
+    width: 360px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    top: 20px;
+    position: absolute;
+    left: 35%;
+    top: 55%;
+    z-index: 999;   
+}
+
 #signupbutton {
     width: 120px;
     height: 100px;
     transition: all .2s ease-in-out; 
-    display: inline-block;
-    float: left;
+    left: 100%;
+    border: 2px solid green;
 }
 
 #loginbutton {
     width: 120px;
     height: 100px;
     transition: all .2s ease-in-out; 
-    display: inline-block;
-    float: left;
+    left: 0%;
+    border: 2px solid aqua;
 }
 
 
