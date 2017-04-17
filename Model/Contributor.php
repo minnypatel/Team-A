@@ -10,10 +10,10 @@ Class Contributor {
     protected $lastName;
     protected $email;
     protected $password;
+    protected $contributor;
             
-    public function __construct($username, $password) {
+    public function __construct($username) {
             $this->username = $username;
-            $this->password = $password;
     }
     
     public function getId() {
@@ -62,5 +62,13 @@ Class Contributor {
     
     public function setPassword($password) {
         $this->password = $password;
+    }
+    
+    public function getContributor() {
+        return $this->contributor;
+    }
+    
+    public function setContributor($contributor) {
+        $this->contributor = $contributor;
     }
 }

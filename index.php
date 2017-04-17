@@ -4,8 +4,10 @@ include_once 'Controller/display.php';
 include_once 'Model/DbConnection.php';
 include_once 'Model/Article.php';
 include_once 'Model/ArticleDAO.php';
+include_once 'Model/ContributorDAO.php';
 
 use Model\ArticleDAO;
+use Model\ContributorDAO;
 use Model\DbConnection;
 use Model\Article;
 
@@ -28,12 +30,15 @@ session_start();
         <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
-            <?php if($_SESSION): ?>
-                    <h3 class="welcome">Welcome: <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></h3>
-            <?php endif; ?>
-            <?php if($_GET): ?>        
-                    <h3 class="category"><?php echo $_GET['category']; ?></h3>
-            <?php endif; ?>
+            <?php if($_SESSION) {
+                    $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
+                    $loggedOn = $contributorConstruction->buildContributorObject($_SESSION['username']);
+                    echo '<h3 class="welcome">' . "Welcome: " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '</h3>';
+                  }
+                  if($_GET) {
+                    echo '<h3 class="category">' .  $_GET['category'] . '</h3>';
+                  } 
+            ?>
                     
         <?php
             
@@ -42,17 +47,26 @@ session_start();
                 $array = $articleDisplay->getCategory($_GET['category']);
             } else {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
-                $array = $articleDisplay->getAll();    
+                $array = $articleDisplay->getAll();
             }
             $array = array_reverse($array);
-   
+            
             foreach($array as $article) {
+                
+                $authorConstruction = new ContributorDAO(Dbconnection::getInstance());
+                $articleAuthorUsername = $article->getContributor()->getUsername();
+                $articleAuthor = $authorConstruction->buildContributorObject($articleAuthorUsername);
+                $article->setContributor($articleAuthor);
+                
                 echo display('article', 
-                            ['title' => $article->getTitle(),
-                             'filepath' => $article->getImage()->getLocation(),
-                             'content' => $article->getContent(),
-                             'category' => $article->getCategory(),
-                             'date' => date("jS F Y", filemtime($article->getImage()->getLocation()))
+                            ['title'       => $article->getTitle(),
+                             'filepath'    => $article->getImage()->getLocation(),
+                             'content'     => $article->getContent(),
+                             'category'    => $article->getCategory(),
+                             'date'        => date("jS F Y", filemtime($article->getImage()->getLocation())),
+                             'contributor' => $article->getContributor()->getFirstName()
+                                            . " "
+                                            . $article->getContributor()->getLastName()
                             ]);
             }
             
