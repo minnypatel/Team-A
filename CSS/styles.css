@@ -8,23 +8,112 @@ and open the template in the editor.
     Author     : kirstyjames
 */
 
+/*
+91756E - $brown
+E3FFC3 - $mint-green
+FDFFF1 - $light grey
+287D79 - $teal
+B27B76 - $pink
+BDD190- green*/
 
-/* fix for weird gap on right hand side*/ 
 
-body {
-    margin: 0px;
+/*font-family: 'Quando', serif;
+font-family: 'Judson', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Cabin', sans-serif;
+font-family: 'Patua One', cursive;
+font-family: 'Lora', serif;
+font-family: 'Grand Hotel', cursive;*/
+
+/* HEADER AND NAVIGATION */
+
+.header {
+    width: 100%;
+    text-align: center;
+    background: #287D79; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#287D79, whitesmoke); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#287D79, whitesmoke); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#287D79, whitesmoke); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#287D79, whitesmoke); /* Standard syntax */
+    position: fixed;
+    z-index: 1;
+    padding-bottom: 0;
+    display: inline-block; 
+    overflow: auto;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
-/* Adds background colour to the navigation bar */
-.topnav {
-    background-color: #333;
+.header img {
+    display: inline-block;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+} 
+
+header.scrolled {
+    height: 50px;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+header.scrolled img {    
+    width: 60px;
+    height: 50px;
+    transition: height 0.3s;
+    -webkit-transition-timing-function: linear;
+}
+
+#js-navbar {
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+#js-navbar.scrolled {
+    background-color: whitesmoke;
     overflow: hidden;
     position: fixed;
     width: 100%;
     text-decoration: none;
-    z-index: 1;
+    z-index: 2;
+    padding: 0;
+    margin: 0px;
+    top: 50px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    transition: 0.25s;
+    -webkit-transition-timing-function: linear;
 }
 
+#js-navbar.unscrolled {
+    background-color: whitesmoke;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    text-decoration: none;
+    z-index: 2;
+    padding: 0;
+    margin: 0px;
+    top: 200px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    transition: 0.3s;
+    -webkit-transition-timing-function: linear;
+}
+
+
+/* Adds background colour to the navigation bar */
+.topnav {
+    background-color: whitesmoke;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    text-decoration: none;
+    z-index: 2;
+    padding: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    top: 200px;
+    transition: height 1s;
+    -webkit-transition-timing-function: linear;
+}
 
 /*Makes sure the list has no padding/margin*/ 
 
@@ -37,18 +126,20 @@ body {
 /* Style the links inside the navigation bar */
 .topnav li { 
     display: block;
-    color: white;
+    color: teal;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     text-decoration: none;
     font-size: 17px;
+    margin: 0;
 }
 
 .topnav li a {
     text-decoration: none;
-    color: white;
+    color: #216663;
     padding: 10px 20px;
+    font-family: 'Patua One', cursive;
 }
 
 .topnav .align-left {
@@ -60,55 +151,246 @@ body {
 }
 
 
-
 /* Change the color of links on hover */
 .topnav li a:hover {
-    background-color: #d6acad;
-    color: black;
+    background-color: #A8C44F;
+    color: whitesmoke;
     text-decoration: none;
-    padding: 10px 20px;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #4CAF50;
+    font-size: 20px;
+    background-color: #6E5D5A;
     color: white;  
 }
 
+/* MAIN CONTENT*/ 
+
+/* fix for weird gap on right hand side*/ 
+
+body {
+    margin: 0px;
+    background: lightgray;
+}
+
 .container {
-    background: #F2F2F2;
+    width: 100%;
 }
 
 .main {
     overflow: hidden;
     position:relative;
-    top: 40px;  
-    margin: 0 auto;
-    max-width: 600px;
+    top: 230px;  
+    background: lightgray;
+    width: 100%;
 }
 
+/*ARTICLE COLUMNS*/ 
+
 .article {
-    max-width: 600px;
-    padding: 10px;
-    background: white;
-    
+    width: auto;
+    padding: 0px;
+    margin-top: 30px;
+    background: whitesmoke;
+    top: 300px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    /*border: 2px green solid;*/
 }
 
 .article img {
-    max-width: 580px;
+    max-width: 100%;
+    height: auto;
     margin: 0;
+    text-align: center;
 }
 
 .article h3 {
+    width: 100%;
     text-align: center;
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Grand Hotel', cursive;
     font-size: 50px;
+    color: black;
+    /*text-shadow: 1px 1px 2px black;*/ 
     margin: 0;
 }
 
 .article p {
-    margin: 0;
+    margin-left: 5px;
 }
+
+
+/* TWITTER FEED COLUMN */ 
+
+#twitterbox {
+    max-height: 85%; 
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
+    width: 30.6666666667%;
+    left: 65.3333333333%; 
+    top: 260px;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+#twitterbox.scrolled {
+    height: 85%;
+    margin-top: 100px;
+    left: 65.3333333333%;
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+#twitterbox.unscrolled {
+    height: 63%;
+    margin-top: 260px;
+    left: 65.3333333333%;
+    overflow: scroll;
+    overflow-style: scrollbar;
+    top: 0;
+    position: fixed;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+/*.container img {
+    height: auto;
+    width: auto;
+}*/
+
+@media (max-width: 550px) {
+    #twitterbox {
+        display: none;
+    }
+}
+
+/* LOGIN PAGE */ 
+
+.form {
+     font-family: 'Lora', serif;
+     max-width: 400px;
+     margin: auto;
+     margin-top: 50px;
+     padding: 15px;
+     background: #A8C44F; 
+     left: 0%;
+     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4), 0 0px 0px 0 rgba(0, 0, 0, 0);
+     height: 200px;
+     position: relative;
+     z-index: 222;
+     
+}
+
+form h1 {
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+
+form h2 {
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+    text-align: center;
+}
+
+form p {
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form input[type='text'] {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 90%;
+    background: whitesmoke;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: #555;
+    font: 18px 'Lora', serif;
+}
+
+form input[type='password']{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 90%;
+    background: whitesmoke;
+    margin-top: 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: #555;
+    font: 18px 'Lora', serif;
+}
+
+.buttons {
+    border: red solid 2px;
+    width: 360px;
+/*    text-align: center;*/
+    position: relative;
+    display: inline-block;
+    top: 20px;
+    position: absolute;
+    left: 35%;
+    top: 55%;
+    z-index: 999;   
+}
+
+#signupbutton {
+    width: 120px;
+    height: 100px;
+    transition: all .2s ease-in-out; 
+    border: 2px solid green;
+    float: left;
+    left: 50%;
+}
+
+#loginbutton {
+    width: 120px;
+    height: 100px;
+    transition: all .2s ease-in-out; 
+    border: 2px solid aqua;
+    float: right;
+    left: 0%;
+
+}
+
+
+#loginbutton:hover,
+#signupbutton:hover {
+    transform: scale(1.3);
+}
+
 
 /* Style all font awesome icons */
 .fa {

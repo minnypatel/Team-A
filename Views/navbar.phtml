@@ -2,31 +2,36 @@
 
 namespace View\Navbar;
 
-?>
+?>  
 
-<header>
-    <div class="topnav">
-    <ul>
-        <li class="align-left"><a href="index.php">Home</a></li>
-        
-        <li class="align-left"><a href="?category=Humblebrag">Humblebrag</a></li>
-        <li class="align-left"><a href="?category=Handpoured">Handpoured</a></li>
-        <li class="align-left"><a href="?category=Hipsperation">Hipsperation</a></li>
-        
-        <?php 
-            if ($_SESSION) {
-                echo '<li class="align-right"><a href="logout.php">Log Out</a></li>';
-                echo '<li class="align-right"><a href="upload.php">Upload</a></li>';
-            } else {
-                echo '<li class="align-right"><a href="login.php">Log In</a></li>';
-            }
-        ?>
-      
-        
-    </ul>
+<script type="text/javascript" src="JavaScript/js.js"></script>
+
+<header id="js-header">
+    <div class="header">
+        <img src="Images/howlogo.png" alt="logo" height="200" width="240"/>
+        <div id="js-navbar" class="topnav"> 
+            <ul>
+            <li class="align-left"><a href="index.php">Home</a></li>
+            <li class="align-left"><a href="?category=Humblebrag">Humblebrag</a></li>
+            <li class="align-left"><a href="?category=Handpoured">Handpoured</a></li>
+            <li class="align-left"><a href="?category=Hipsperation">Hipsperation</a></li>
+
+
+            <?php 
+                if ($_SESSION) {
+                    echo '<li class="align-right"><a href="logout.php">Log Out</a></li>';
+                    echo '<li class="align-right"><a href="upload.php">Upload</a></li>';
+                } else {
+                    echo '<li class="align-right"><a href="login.php">Log In</a></li>';
+                }
+            ?>
+            </ul>
+        </div>  
     </div>
-</header> 
+</header>
+
+
+
+    
+    
  
-
-
-
