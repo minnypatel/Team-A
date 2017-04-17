@@ -15,7 +15,8 @@ Class ArticleUpload {
     const InputKey = 'userFile';
 
     public function upload(Article $article) {
-        if ($article->getImage() !== null) {
+        print_r($article->getImage()->getLocation());
+        if ($article->getImage()->getLocation() !== "") {
             $this->moveFile($article);
         }
         $articleUploader = new ArticleDAO(Dbconnection::getInstance());

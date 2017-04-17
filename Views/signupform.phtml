@@ -1,4 +1,8 @@
-<form action="" method="POST">
+<form   name="userSignup"
+        action="signup.php"
+        onsubmit="return validateUserSignupForm()"
+        method="POST"
+        enctype="multipart/form-data">
     
     <div>
         <label for="username">Username: </label>
@@ -23,6 +27,11 @@
     <div>
         <label for="password">Password: </label>
         <input name="password" type="password"/>
+    </div>
+    
+    <div>
+        <label for="password2">Password: </label>
+        <input name="password2" type="password" placeholder="confirm password"/>
     </div>
 
     <button type="submit">Sign up</button>
