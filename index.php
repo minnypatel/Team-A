@@ -95,6 +95,6 @@ session_start();
  </div>
         
     </body>
-       <?php //echo display('footer'); ?>
+       <?php echo display('footer'); ?>
 </html>
 
