@@ -1,15 +1,20 @@
-<form  action="upload.php" 
-       method="post"
-       enctype="multipart/form-data">
+<script>tinymce.init({ selector:'textarea' });</script>
 
-    <input type='hidden'
-           name='MAX_FILE_SIZE'
-           value ='10000000'/>
+<form   name="upload"
+        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+        onsubmit="return validateUploadForm()"
+        method="POST"
+        enctype="multipart/form-data">
+
+<input  type='hidden'
+        name='MAX_FILE_SIZE'
+        value ='2000000'/>
 
     <div class="upload-form">
 
         <h1><input type='text' name='title' id='title' placeholder="Title"/></h1>
         <p>Category: <select name='category' id='category'>
+                    <option value=""></option>
                     <option value="Humblebrag">Humblebrag</option>
                     <option value="Handpoured">Handpoured</option>
                     <option value="Hipsperation">Hipsperation</option>
@@ -20,7 +25,5 @@
                     <input type='submit' value='Submit' class="button"/>
 
     </div>
-</form>
 
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'textarea' });</script>
+</form>

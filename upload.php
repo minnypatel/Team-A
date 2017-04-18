@@ -16,14 +16,19 @@ use function Controller\display;
 
 session_start();
 
+if(!isset($_SESSION['username'])) {
+    header("location:login.php");
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $file = new File($_FILES['userFile']['name']);
-    $file->setLocation($_FILES['userFile']['tmp_name']);
-    
     $article = new Article($_POST['title'], $_POST['content']);
     
-    $article->setImage($file);
+    if(isset($_FILES['userFile'])) {
+        $file = new File($_FILES['userFile']['name']);
+        $file->setLocation($_FILES['userFile']['tmp_name']);
+        $article->setImage($file);
+     }
     
     $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
     $contributor = $contributorConstruction->buildContributorObject($_SESSION['username']);
@@ -51,6 +56,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script type="text/javascript" src="JavaScript/validateForm.js"></script>
     </head>
     <body>
         

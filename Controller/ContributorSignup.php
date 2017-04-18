@@ -13,10 +13,14 @@ use \Model\Contributor;
 Class ContributorSignup
 {    
     public function signup($contributor) {
-        
         $contributorNew = new ContributorDAO(Dbconnection::getInstance());
-        $contributorNew->contributorSignup($contributor);
-//        header("Location: login.php");
-
+        
+        try {
+            $contributorNew->contributorSignup($contributor);
+            header("Location: login.php");
+        }
+        catch (\PDOException $e) {
+            echo "Error - your username is too mainstream";
         }
     }
+}

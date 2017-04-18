@@ -1,4 +1,8 @@
-<form action="" method="POST">
+<form   name="userLogin"
+        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+        onsubmit="return validateUserLoginForm()"
+        method="POST"
+        enctype="multipart/form-data">
     
     <div class="login-form">
         
@@ -12,10 +16,10 @@
         
         <p>Not a member yet?</p>
         
-        <h2><a href="signup.php">Sign up</h2>
+      <h2><a href="signup.php">Sign up</a></h2>
         
     </div>    
     
 </form>
     
-    
+  

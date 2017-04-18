@@ -2,7 +2,8 @@
 
 namespace Model;
 
-Class File {
+Class File
+{
     protected $name;
     protected $location;
     

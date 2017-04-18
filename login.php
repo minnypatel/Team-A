@@ -12,9 +12,12 @@ use function Controller\display;
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username']);
-    $contributor->setPassword($_POST['password']);
+$server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+if($server['REQUEST_METHOD'] == 'POST') {
+    $contributor = new Contributor($post['username']);
+    $contributor->setPassword($post['password']);
     $contributorLogin = new Controller\ContributorLogin();
     $contributorLogin->login($contributor);
 }
@@ -34,6 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+        <script type="text/javascript" src="JavaScript/validateForm.js"></script>
     </head>
     <body>
         <?php echo display('navbar'); ?>

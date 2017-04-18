@@ -34,13 +34,15 @@ session_start();
         <div class="container">
             <div class="main">
 
-                    <?php if($_SESSION) {
-                    $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
-                    $loggedOn = $contributorConstruction->buildContributorObject($_SESSION['username']);
-                    echo '<div class="welcome">' . "Hi, " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '!</div>';
+
+            <?php if($_SESSION) {
+                      $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
+                      $loggedOn = $contributorConstruction->buildContributorObject($_SESSION['username']);
+                      echo '<div class="welcome">' . "Hi, " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '!</div>';
                   }
-                  if($_GET) {
-                    echo '<h3 class="category">' .  $_GET['category'] . '</h3>';
+                  $get = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
+                  if(isset($get)) {
+                      echo '<h3 class="category">' . $get . '</h3>';
                   } 
             ?>
 
@@ -48,11 +50,10 @@ session_start();
                     <div class="eight columns">
 
 
-        <?php
-            
-            if(isset($_GET['category'])) {
+        <?php  
+            if(isset($get)) {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
-                $array = $articleDisplay->getCategory($_GET['category']);
+                $array = $articleDisplay->getCategory($get);
             } else {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
                 $array = $articleDisplay->getAll();

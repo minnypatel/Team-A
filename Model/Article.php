@@ -2,8 +2,8 @@
 
 namespace Model;
 
-Class Article {
-    
+Class Article 
+{
     protected $id;
     protected $title;
     protected $content;

@@ -14,15 +14,18 @@ use function Controller\display;
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username']);
+$server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+if($server['REQUEST_METHOD'] == 'POST') {
+    $contributor = new Contributor($post['username']);
     
-    $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $hash = password_hash($post['password'], PASSWORD_DEFAULT);
     $contributor->setPassword($hash);
     
-    $contributor->setFirstName($_POST['firstname']);
-    $contributor->setLastName($_POST['lastname']);
-    $contributor->setEmail($_POST['emailaddress']);
+    $contributor->setFirstName($post['firstname']);
+    $contributor->setLastName($post['lastname']);
+    $contributor->setEmail($post['emailaddress']);
     $contributorSignup = new Controller\ContributorSignup();
     $contributorSignup->signup($contributor);
 }
@@ -42,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+        <script type="text/javascript" src="JavaScript/validateForm.js"></script>
     </head>
     <body>
         <?php echo display('navbar'); ?>

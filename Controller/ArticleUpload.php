@@ -10,12 +10,14 @@ use \Model\DbConnection;
 use \Model\ArticleDAO;
 use \Model\Article;
 
-Class ArticleUpload {
-    
-    const InputKey = 'userFile';
+Class ArticleUpload 
+{    
+    const INPUTKEY = 'userFile';
+    const ALLOWEDTYPES = ['image/jpeg', 'image/JPEG', 'image/jpg', 'image/JPG', 'image/gif', 'image/png'];
 
     public function upload(Article $article) {
-        if ($article->getImage() !== null) {
+        $this->errorHandleFile();
+        if ($article->getImage()->getLocation() !== "") {
             $this->moveFile($article);
         }
         $articleUploader = new ArticleDAO(Dbconnection::getInstance());
@@ -46,5 +48,21 @@ Class ArticleUpload {
         
         $file->setLocation($dstFile); 
         $article->setImage($file);  
+    }
+    
+    private function errorHandleFile() {
+        print_r($_FILES);
+        if (empty($_FILES)) {
+            throw new \Exception("File not loaded: check the size is under 2MB\n");
+        }
+        elseif (empty($_FILES[ArticleUpload::INPUTKEY]['name'])) {  
+            throw new \Exception("File missing!");   
+        }
+        elseif (!in_array($_FILES[ArticleUpload::INPUTKEY]['type'], ArticleUpload::ALLOWEDTYPES)){
+            throw new \Exception("File Type Not Allowed");    
+        }
+        elseif ($_FILES[InputKey]['error'] > 0) {   
+            throw new \Exception("Unknown error. What have you done?");    
+        }
     }
 }
