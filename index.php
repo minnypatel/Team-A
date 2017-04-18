@@ -42,9 +42,9 @@ session_start();
                       $loggedOn = $contributorConstruction->buildContributorObject($_SESSION['username']);
                       echo '<h3 class="welcome">' . "Welcome: " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '</h3>';
                   }
-                  $var = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
-                  if(isset($var)) {
-                      echo '<h3 class="category">' . $var . '</h3>';
+                  $get = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
+                  if(isset($get)) {
+                      echo '<h3 class="category">' . $get . '</h3>';
                   } 
             ?>
 
@@ -53,9 +53,9 @@ session_start();
 
 
         <?php  
-            if(isset($var)) {
+            if(isset($get)) {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
-                $array = $articleDisplay->getCategory($var);
+                $array = $articleDisplay->getCategory($get);
             } else {
                 $articleDisplay = new ArticleDAO(Dbconnection::getInstance());
                 $array = $articleDisplay->getAll();

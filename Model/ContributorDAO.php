@@ -23,7 +23,9 @@ Class ContributorDAO
     public function contributorCheckLogin($contributor) {
         
         // try/catch all of this to create failed login?
-
+        
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        
         $request = $this->connection->prepare("SELECT id, username, password, firstname, lastname
                                                  FROM contributor
                                                 WHERE username =:username");
@@ -35,7 +37,7 @@ Class ContributorDAO
 
         foreach($request as $details) {
             if ($details['username'] == $contributor->getUsername() 
-             && password_verify($_POST['password'], $details['password'])
+             && password_verify($password, $details['password'])
                     ) {
                     $_SESSION['username']  = $details['username'];
             }

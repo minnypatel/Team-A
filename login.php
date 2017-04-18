@@ -12,11 +12,12 @@ use function Controller\display;
 
 session_start();
 
-$var = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+$server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-if($var['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username']);
-    $contributor->setPassword($_POST['password']);
+if($server['REQUEST_METHOD'] == 'POST') {
+    $contributor = new Contributor($post['username']);
+    $contributor->setPassword($post['password']);
     $contributorLogin = new Controller\ContributorLogin();
     $contributorLogin->login($contributor);
 }

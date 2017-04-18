@@ -18,7 +18,7 @@ Class ContributorLogin
         $contributorLogger->contributorCheckLogin($contributor);
         // hack doesn't work, better to write into a try catch in the DAO
 //        echo "login failed";
-        header("Location: index.php");
+//        header("Location: index.php");
     }
     
     public function logout() {

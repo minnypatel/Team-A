@@ -2,8 +2,8 @@
 
 namespace Model;
 
-Class DbConnection {
-    
+Class DbConnection
+{    
     private static $instance = null; 
     private $connection; 
     

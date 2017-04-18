@@ -33,11 +33,11 @@ function validateUploadForm() {
 //        return false;
 //    }
     
-    var image = document.forms["upload"]["userFile"].value;
-    if (image === ""  || image === null) {
-        alert("A picture paints a thousand words mate. Use one.");
-        return false;
-    }
+//    var image = document.forms["upload"]["userFile"].value;
+//    if (image === ""  || image === null) {
+//        alert("A picture paints a thousand words mate. Use one.");
+//        return false;
+//    }
 }
 
 function validateUserLoginForm() {
@@ -111,12 +111,12 @@ function validateUserSignupForm() {
     }
     
     var password = document.forms["userSignup"]["password"].value;
-    var checkPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+    var checkPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/;
     if (password === "" || password === null) {
         alert("...don't forget the magic word!");
         return false;
     } else if (!checkPassword.test(password)) {
-        alert("Passwords should have between 8-20 characters, and contain at least one letter and one number.");
+        alert("Passwords should have between 8-20 characters, and contain at least one upper case letter, one lowercase letter, one number, and one special character.");
         return false;
     }
 }

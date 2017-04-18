@@ -23,9 +23,9 @@ if($server['REQUEST_METHOD'] == 'POST') {
     $hash = password_hash($post['password'], PASSWORD_DEFAULT);
     $contributor->setPassword($hash);
     
-    $contributor->setFirstName($_POST['firstname']);
-    $contributor->setLastName($_POST['lastname']);
-    $contributor->setEmail($_POST['emailaddress']);
+    $contributor->setFirstName($post['firstname']);
+    $contributor->setLastName($post['lastname']);
+    $contributor->setEmail($post['emailaddress']);
     $contributorSignup = new Controller\ContributorSignup();
     $contributorSignup->signup($contributor);
 }

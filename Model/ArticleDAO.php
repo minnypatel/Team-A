@@ -8,7 +8,8 @@ include_once 'File.php';
 use \Model\DbConnection;
 use \Model\File;
 
-Class ArticleDAO {
+Class ArticleDAO
+{
     protected $connection;
     
     public function __construct(DbConnection $connection) {
