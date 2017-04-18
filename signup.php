@@ -17,19 +17,6 @@ session_start();
 $server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
 $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-if($server['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($post['username']);
-    
-    $hash = password_hash($post['password'], PASSWORD_DEFAULT);
-    $contributor->setPassword($hash);
-    
-    $contributor->setFirstName($post['firstname']);
-    $contributor->setLastName($post['lastname']);
-    $contributor->setEmail($post['emailaddress']);
-    $contributorSignup = new Controller\ContributorSignup();
-    $contributorSignup->signup($contributor);
-}
-
 ?>
 
 <html>
@@ -51,6 +38,26 @@ if($server['REQUEST_METHOD'] == 'POST') {
         <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
+            
+            <div class="error-message">
+                
+                <?php
+                if($server['REQUEST_METHOD'] == 'POST') {
+                $contributor = new Contributor($post['username']);
+
+                $hash = password_hash($post['password'], PASSWORD_DEFAULT);
+                $contributor->setPassword($hash);
+
+                $contributor->setFirstName($post['firstname']);
+                $contributor->setLastName($post['lastname']);
+                $contributor->setEmail($post['emailaddress']);
+                $contributorSignup = new Controller\ContributorSignup();
+                $contributorSignup->signup($contributor);
+                }
+                ?>
+                
+            </div>
+               
               <?php echo display('signupform'); ?>
         </div>
         </div>

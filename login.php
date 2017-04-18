@@ -15,12 +15,7 @@ session_start();
 $server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
 $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-if($server['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($post['username']);
-    $contributor->setPassword($post['password']);
-    $contributorLogin = new Controller\ContributorLogin();
-    $contributorLogin->login($contributor);
-}
+
 
 ?>
 
@@ -43,6 +38,19 @@ if($server['REQUEST_METHOD'] == 'POST') {
         <?php echo display('navbar'); ?>
         <div class="container">
         <div class="main">
+            
+            <div class="error-message">
+                
+                <?php 
+                if($server['REQUEST_METHOD'] == 'POST') {
+                $contributor = new Contributor($post['username']);
+                $contributor->setPassword($post['password']);
+                $contributorLogin = new Controller\ContributorLogin();
+                $contributorLogin->login($contributor);
+                }
+                ?>
+                
+            </div>
               <?php echo display('loginform'); ?>
         </div>
         </div>

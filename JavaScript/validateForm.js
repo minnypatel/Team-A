@@ -33,11 +33,11 @@ function validateUploadForm() {
 //        return false;
 //    }
     
-//    var image = document.forms["upload"]["userFile"].value;
-//    if (image === ""  || image === null) {
-//        alert("A picture paints a thousand words mate. Use one.");
-//        return false;
-//    }
+    var image = document.forms["upload"]["userFile"].value;
+    if (image === ""  || image === null) {
+        alert("A picture paints a thousand words mate. Use one.");
+        return false;
+    }
 }
 
 function validateUserLoginForm() {
