@@ -24,6 +24,11 @@ if($server['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
+<link rel="stylesheet" href="CSS/skeleton.css">
+<link rel="stylesheet" href="CSS/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Neuton" rel="stylesheet">
+
 
 <html>
     <head>        

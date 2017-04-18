@@ -25,10 +25,7 @@ session_start();
         <link rel="stylesheet" href="CSS/skeleton.css">
         <link rel="stylesheet" href="CSS/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Judson|Quando" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster|Lora|Patua+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Neuton" rel="stylesheet">
     </head>
     
     
@@ -37,10 +34,11 @@ session_start();
         <div class="container">
             <div class="main">
 
+
             <?php if($_SESSION) {
                       $contributorConstruction = new ContributorDAO(Dbconnection::getInstance());
                       $loggedOn = $contributorConstruction->buildContributorObject($_SESSION['username']);
-                      echo '<h3 class="welcome">' . "Welcome: " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '</h3>';
+                      echo '<div class="welcome">' . "Hi, " . $loggedOn->getFirstName() . " " . $loggedOn->getLastName() . '!</div>';
                   }
                   $get = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
                   if(isset($get)) {
@@ -84,18 +82,19 @@ session_start();
             ?>
                   </div>        
                            
-                        <div class="four columns" id="twitterbox">
+                        <div id="twitterbox">
                             
-                            <a class="twitter-timeline" data-width="300" data-height="700" href="https://twitter.com/HipsterHacker">Tweets by HipsterHacker</a>
+                            <a class="twitter-timeline" data-width="300" href="https://twitter.com/HipsterHacker">Tweets by HipsterHacker</a>
                         
                         </div>
                     </div>
                 </div>
-    </div>
+   
             
             <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+ </div>
+        
     </body>
-        <?php echo display('footer'); ?>
+       <?php //echo display('footer'); ?>
 </html>
 

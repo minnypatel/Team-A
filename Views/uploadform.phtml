@@ -9,16 +9,21 @@
 <input  type='hidden'
         name='MAX_FILE_SIZE'
         value ='2000000'/>
-      
-     Title: <input type='text' name='title' id='title' /><br />
-  Category: <select name='category' id='category'>
-                <option value=""></option>
-                <option value="Humblebrag">Humblebrag</option>
-                <option value="Handpoured">Handpoured</option>
-                <option value="Hipsperation">Hipsperation</option>
-            </select><br />
-   Content: <textarea  name='content' id='content'></textarea>
-     Image: <input type='file' name='userFile'/><br />
-            <input type='hidden' name='contributor' />
-            <input type='submit' value='Submit' />
+
+    <div class="upload-form">
+
+        <h1><input type='text' name='title' id='title' placeholder="Title"/></h1>
+        <p>Category: <select name='category' id='category'>
+                    <option value=""></option>
+                    <option value="Humblebrag">Humblebrag</option>
+                    <option value="Handpoured">Handpoured</option>
+                    <option value="Hipsperation">Hipsperation</option>
+                    </select></p>
+                    <textarea  name='content' id='content' placeholder="Content"></textarea>
+                    <p>Image: <input type='file' name='userFile' class=""/></p>
+                    <input type='hidden' name='contributor' value='' />
+                    <input type='submit' value='Submit' class="button"/>
+
+    </div>
+
 </form>

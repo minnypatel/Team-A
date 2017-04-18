@@ -3,15 +3,15 @@
     <h3><?php echo $title; ?></h3>
         
         <?php if($filepath != null): ?>
-                  <p><img src=<?="$filepath"; ?> /></p>
+                  <img src=<?="$filepath"; ?> />
         <?php else: ?>
                   <h3>THIS RAN</h3>
-                  <p><img src='Images/2002.jpg'/></p>
+                  <img src='Images/2002.jpg'/>
         <?php endif; ?>
 
-    <p>Category: <?php echo $category; ?></p>  
-    <p>Posted: <?php echo $date; ?></p>
-    <p>Author: <?php echo $contributor; ?></p>
+    <h4>Category: <?php echo $category; ?></h4>  
+    <h4>Posted: <?php echo $date; ?></h4>
+    <h4>Author: <?php echo $contributor; ?></h4>
     <p><?php echo $content; ?></p>
 
 </div>
