@@ -14,10 +14,13 @@ use function Controller\display;
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $contributor = new Contributor($_POST['username']);
+$server = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+if($server['REQUEST_METHOD'] == 'POST') {
+    $contributor = new Contributor($post['username']);
     
-    $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $hash = password_hash($post['password'], PASSWORD_DEFAULT);
     $contributor->setPassword($hash);
     
     $contributor->setFirstName($_POST['firstname']);

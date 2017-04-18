@@ -12,7 +12,9 @@ use function Controller\display;
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+$var = filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING);
+
+if($var['REQUEST_METHOD'] == 'POST') {
     $contributor = new Contributor($_POST['username']);
     $contributor->setPassword($_POST['password']);
     $contributorLogin = new Controller\ContributorLogin();

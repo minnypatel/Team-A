@@ -17,7 +17,7 @@ Class ContributorLogin
         $contributorLogger = new ContributorDAO(Dbconnection::getInstance());
         $contributorLogger->contributorCheckLogin($contributor);
         // hack doesn't work, better to write into a try catch in the DAO
-        echo "login failed";
+//        echo "login failed";
         header("Location: index.php");
     }
     
