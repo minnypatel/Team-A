@@ -184,7 +184,10 @@ body {
 }
 
 .footer {
-    background: #F2F2F2;
+    background: none;
     padding:60px 30px 30px 30px;
     text-align: center;
+    bottom: 0%;
+    position: fixed;
+    left: 25%;
 }
