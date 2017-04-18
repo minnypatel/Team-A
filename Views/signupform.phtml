@@ -1,5 +1,5 @@
 <form   name="userSignup"
-        action="signup.php"
+        action=""
         onsubmit="return validateUserSignupForm()"
         method="POST"
         enctype="multipart/form-data">
@@ -26,12 +26,12 @@
 
     <div>
         <label for="password">Password: </label>
-        <input name="password" type="password"/>
+        <input id="pass1" name="password" type="password"/>
     </div>
     
     <div>
         <label for="password2">Password: </label>
-        <input name="password2" type="password" placeholder="confirm password"/>
+        <input id="pass2" name="password2" type="password" placeholder="confirm password"/>
     </div>
 
     <button type="submit">Sign up</button>
