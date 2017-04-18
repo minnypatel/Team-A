@@ -63,16 +63,20 @@ Class ArticleDAO
     }
     
     public function saveArticle(Article $article) {
-           
-        $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath, category, contributor)
-                                      VALUES (:title, :content, :filepath, :category, :contributor)");
+        try {   
+            $stmt = $this->connection->prepare("INSERT INTO article (title, content, filepath, category, contributor)
+                                          VALUES (:title, :content, :filepath, :category, :contributor)");
 
-        $stmt->execute([
-            'title'    => $article->getTitle(), 
-            'content'  => $article->getContent(),
-            'filepath' => $article->getImage()->getLocation(),
-            'category' => $article->getCategory(),
-            'contributor' => $article->getContributor()->getUsername()
-            ]);  
+            $stmt->execute([
+                'title'    => $article->getTitle(), 
+                'content'  => $article->getContent(),
+                'filepath' => $article->getImage()->getLocation(),
+                'category' => $article->getCategory(),
+                'contributor' => $article->getContributor()->getUsername()
+                ]);
+        }
+        catch (\PDOException $e) {
+            "Can't save article";
+        }
     }
 }

@@ -15,10 +15,17 @@ Class ContributorLogin
     public function login($contributor) {
         
         $contributorLogger = new ContributorDAO(Dbconnection::getInstance());
+        
+        try {
         $contributorLogger->contributorCheckLogin($contributor);
-        // hack doesn't work, better to write into a try catch in the DAO
-//        echo "login failed";
-//        header("Location: index.php");
+        header("Location: index.php");
+        }
+        catch (\PDOException $e) {
+            echo "Error - Login failed";
+        }
+        catch (\Exception $e) {
+            echo "Error - Login failed";
+        }
     }
     
     public function logout() {

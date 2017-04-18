@@ -1,7 +1,7 @@
 <script>tinymce.init({ selector:'textarea' });</script>
 
 <form   name="upload"
-        action="upload.php"
+        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
         onsubmit="return validateUploadForm()"
         method="POST"
         enctype="multipart/form-data">
