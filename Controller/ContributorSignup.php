@@ -20,7 +20,7 @@ Class ContributorSignup
             header("Location: login.php");
         }
         catch (\PDOException $e) {
-            echo "Error - your username is too mainstream";
+            echo "Error - Your username is too mainstream";
         }
     }
 }

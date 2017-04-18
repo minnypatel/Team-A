@@ -42,7 +42,7 @@ session_start();
                   }
                   $get = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
                   if(isset($get)) {
-                      echo '<h3 class="category">' . $get . '</h3>';
+                      echo '<div class="category">' . $get . '</div>';
                   } 
             ?>
 

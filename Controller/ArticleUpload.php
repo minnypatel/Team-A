@@ -16,7 +16,12 @@ Class ArticleUpload
     const ALLOWEDTYPES = ['image/jpeg', 'image/JPEG', 'image/jpg', 'image/JPG', 'image/gif', 'image/png'];
 
     public function upload(Article $article) {
+//        try {
         $this->errorHandleFile();
+//        }
+//        catch (\Exception $e) {
+//            echo $e;
+//        }
         if ($article->getImage()->getLocation() !== "") {
             $this->moveFile($article);
         }
@@ -51,7 +56,6 @@ Class ArticleUpload
     }
     
     private function errorHandleFile() {
-        print_r($_FILES);
         if (empty($_FILES)) {
             throw new \Exception("File not loaded: check the size is under 2MB\n");
         }

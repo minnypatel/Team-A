@@ -12,15 +12,15 @@ namespace View\Navbar;
         <div id="js-navbar" class="topnav"> 
             <ul>
             <li class="align-left"><a href="index.php">Home</a></li>
-            <li class="align-left"><a href="?category=Humblebrag">Humblebrag</a></li>
-            <li class="align-left"><a href="?category=Handpoured">Handpoured</a></li>
-            <li class="align-left"><a href="?category=Hipsperation">Hipsperation</a></li>
+            <li class="align-left"><a href="?category=Humblebrag" title="Subtly letting others know how fantastic your life is.">Humblebrag</a></li>
+            <li class="align-left"><a href="?category=Handpoured" title="Overpriced beer and niche coffee.">Handpoured</a></li>
+            <li class="align-left"><a href="?category=Hipsperation" title="When you're too cool for Pinterest.">Hipsperation</a></li>
 
 
             <?php 
                 if ($_SESSION) {
                     echo '<li class="align-right"><a href="logout.php">Log Out</a></li>';
-                    echo '<li class="align-right"><a href="upload.php">Upload</a></li>';
+                    echo '<li class="align-right"><a href="upload.php">New Blog Post</a></li>';
                 } else {
                     echo '<li class="align-right"><a href="login.php">Log In</a></li>';
                 }
