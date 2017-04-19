@@ -23,23 +23,28 @@ Class ContributorDAO
     public function contributorCheckLogin($contributor) {
         
             $password = filter_input(INPUT_POST, 'password');
-
+            
             $request = $this->connection->prepare("SELECT id, username, password, firstname, lastname
                                                      FROM contributor
                                                     WHERE username =:username");
             $request->execute([
                 'username'   => $contributor->getUsername() 
                 ]);
-
-            foreach($request as $details) {
-                if ($details['username'] == $contributor->getUsername() 
-                 && password_verify($password, $details['password'])
-                        ) {
-                        $_SESSION['username']  = $details['username'];
+            
+            $row = $request->fetch();
+            
+            if (!$row === null) {
+                foreach($request as $details) {
+                    if ($details['username'] == $contributor->getUsername() 
+                     && password_verify($password, $details['password'])) {
+                            $_SESSION['username']  = $details['username'];
+                    }
+                    else {
+                        throw new \Exception();
+                    }
                 }
-                else {
-                    throw new \Exception("This is my Exception Message");
-                }
+            } else {
+                throw new \Exception();
             }
     }
     

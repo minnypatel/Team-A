@@ -48,7 +48,7 @@ function validateUserLoginForm() {
         return false;
     }
       
-    var password = document.forms["user"]["password"].value;
+    var password = document.forms["userLogin"]["password"].value;
     if (password === "" || password === null) {
         alert("...don't forget the magic word!");
         return false;
