@@ -1,7 +1,7 @@
 function validateUploadForm() {
     
     var title = document.forms["upload"]["title"].value;
-    var checkTitle = /^[A-Za-z0-9!?@#$£%&*()_ ]{1,45}$/;
+    var checkTitle = /^[A-Za-z0-9!?@#$£%&*()_\-+ ]{1,45}$/;
     if (title === "" || title === null) {
         alert("Please enter a title for your blog post.");
         return false;
@@ -111,7 +111,7 @@ function validateUserSignupForm() {
     }
     
     var password = document.forms["userSignup"]["password"].value;
-    var checkPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/;
+    var checkPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&~+\-_.,^<>(){}\[\]])[A-Za-z\d$@$!%*#?&~+\-_.,^<>(){}\[\]]{8,20}$/;
     if (password === "" || password === null) {
         alert("...don't forget the magic word!");
         return false;
