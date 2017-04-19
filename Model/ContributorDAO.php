@@ -22,7 +22,7 @@ Class ContributorDAO
     
     public function contributorCheckLogin($contributor) {
         
-            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'password');
 
             $request = $this->connection->prepare("SELECT id, username, password, firstname, lastname
                                                      FROM contributor
