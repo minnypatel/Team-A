@@ -1,7 +1,7 @@
 function validateUploadForm() {
     
     var title = document.forms["upload"]["title"].value;
-    var checkTitle = /^[A-Za-z0-9!?@#$£%&*()_\-+ ]{1,45}$/;
+    var checkTitle = /^[A-Za-z0-9!?@#$£%&*()'"\[\]{}_\-+ ]{1,45}$/;
     if (title === "" || title === null) {
         alert("Please enter a title for your blog post.");
         return false;
